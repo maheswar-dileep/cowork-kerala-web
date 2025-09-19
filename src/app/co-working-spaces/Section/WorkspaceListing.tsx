@@ -67,7 +67,7 @@ const WorkspaceCard = ({ workspace }: { workspace: Workspace }) => {
                 </div>
             </div>
 
-            <div className="space-y-4 p-5">
+            <div className="space-y-4 p-5 md:p-0 md:py-2">
                 <p className="text-sm text-gray-700 line-clamp-3 lg:line-clamp-none col-span-3">
                     {workspace.description}
                 </p>
