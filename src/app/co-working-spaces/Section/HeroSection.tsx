@@ -20,7 +20,7 @@ const HeroSection = () => {
 
                 <div className="order-1 md:order-2 md:col-span-4 md:flex md:items-end absolute bottom-0 z-10">
                     <div className="mx-auto -mt-6 w-[88%] rounded-tr-4xl bg-primary-100 p-6 md:-mt-0 md:w-full md:p-8">
-                        <h1 className="text-4xl font-semibold leading-tight md:text-5xl">
+                        <h1 className="text-4xl font-medium leading-tight md:text-5xl">
                             Work in
                             <br />
                             Workspace

@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { SearchIcon } from 'lucide-react';
-import { FaChevronDown } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io';
 
 const Header = () => {
