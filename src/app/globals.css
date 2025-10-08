@@ -15,3 +15,8 @@
 body {
     font-family: "Manrope", sans-serif;
 }
+
+
+.max-w-default {
+    max-width: 80vw;
+}

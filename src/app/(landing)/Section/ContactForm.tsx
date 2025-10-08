@@ -3,7 +3,7 @@ import React from 'react';
 
 const ContactForm = () => {
     return (
-        <section className="relative overflow-hidden rounded-3xl bg-primary-50/60">
+        <section className="relative overflow-hidden bg-primary-50/60">
             {/* Background wavy pattern */}
             <div className="absolute inset-0 opacity-20">
                 <svg
@@ -89,7 +89,7 @@ const ContactForm = () => {
                     </form>
                 </div>
 
-                <div className="md:col-span-5 flex items-center justify-center p-6 md:p-8">
+                <div className="md:col-span-5 hidden md:flex items-center justify-center p-6 md:p-8">
                     <div className="relative h-80 w-80 md:h-96 md:w-96">
                         <div className="absolute inset-0 rounded-full overflow-hidden">
                             <Image

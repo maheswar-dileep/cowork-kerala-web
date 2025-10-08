@@ -1,6 +1,5 @@
-import { IndianRupee, Ruler, Users } from 'lucide-react';
+import { IndianRupee, Users } from 'lucide-react';
 import React from 'react';
-import { BiChair } from 'react-icons/bi';
 import Form from '../forms/Form';
 import { PiChairLight, PiResize } from 'react-icons/pi';
 import { MdArrowOutward } from 'react-icons/md';
@@ -18,7 +17,7 @@ const OverviewSection = () => {
                     <button className="hover:opacity-80">Access</button>
                 </nav>
 
-                <p className="text-gray-800">
+                <p className="text-gray-800">k
                     Located in Trivandrum, our Commerce space blends modern design with local charm.
                     Just a short walk from the city{`'`}s lively cafés, it{`'`}s an ideal spot for
                     freelancers and teams seeking inspiration, flexibility, and community.

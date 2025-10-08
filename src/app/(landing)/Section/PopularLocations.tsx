@@ -16,49 +16,55 @@ const LOCATIONS: Location[] = [
 
 const PopularLocations = () => {
     return (
-        <section className="rounded-3xl bg-primary-50/60 p-5 md:p-8">
-            <div className="text-center">
-                <h2 className="text-3xl font-semibold md:text-5xl">Popular Locations in Kerala</h2>
-                <p className="mt-2 text-xs text-gray-700 md:text-sm">
-                    Explore coworking spaces and virtual offices in Kerala{`'`}s major business hubs
+        <section className="w-full py-12 md:py-16">
+            {/* Header */}
+            <div className="text-center mb-10 md:mb-12">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-900 mb-3">
+                    Popular Locations in Kerala
+                </h2>
+                <p className="text-sm md:text-base text-zinc-700 tracking-wide uppercase">
+                    EXPLORE COWORKING SPACES AND VIRTUAL OFFICES IN KERALA&apos;S MAJOR BUSINESS HUBS
                 </p>
             </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {/* Location Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8">
                 {LOCATIONS.map((loc) => (
-                    <div key={loc.id} className="space-y-3">
-                        <div className="relative overflow-hidden rounded-3xl">
-                            <div className="relative h-64 w-full">
-                                <Image
-                                    src={loc.image}
-                                    alt={loc.name}
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 768px) 100vw, 25vw"
-                                    priority
-                                />
-                            </div>
+                    <div key={loc.id} className="flex flex-col items-center">
+                        <div className="relative w-full aspect-[3/4] overflow-hidden rounded-3xl mb-4">
+                            <Image
+                                src={loc.image}
+                                alt={loc.name}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                            />
                         </div>
-                        <div className="text-center text-base font-medium md:text-lg">
+                        <h3 className="text-xl md:text-2xl font-medium text-zinc-900">
                             {loc.name}
-                        </div>
+                        </h3>
                     </div>
                 ))}
             </div>
 
-            <div className="mt-6 flex items-center justify-center gap-2">
+            {/* Carousel Dots */}
+            <div className="flex items-center justify-center gap-2 mb-8">
                 {[0, 1, 2, 3].map((i) => (
-                    <span
+                    <button
                         key={i}
-                        className={`h-1.5 rounded-full ${
-                            i === 1 ? 'w-8 bg-gray-900' : 'w-3 bg-gray-400'
+                        aria-label={`Go to slide ${i + 1}`}
+                        className={`rounded-full transition-all ${
+                            i === 1
+                                ? 'w-8 h-2 bg-zinc-800'
+                                : 'w-2 h-2 bg-zinc-400 hover:bg-zinc-500'
                         }`}
                     />
                 ))}
             </div>
 
-            <div className="mt-6 flex justify-center">
-                <button className="rounded-full bg-primary-100 px-5 py-2 text-gray-900 hover:bg-primary-200">
+            {/* CTA Button */}
+            <div className="flex justify-center">
+                <button className="px-6 py-3 rounded-full bg-[#CFEAB1] text-zinc-900 text-sm font-medium tracking-wide hover:bg-[#bfda9f] transition-colors">
                     DISCOVER MORE
                 </button>
             </div>

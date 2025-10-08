@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 const HeroCTA = () => {
     return (
-        <section className="relative overflow-hidden rounded-3xl">
+        <section className="relative overflow-hidden">
             {/* Background Image with Dark Overlay */}
             <div className="relative h-96 w-full md:h-[500px]">
                 <Image

@@ -50,7 +50,7 @@ const WhyChoose = () => {
                     Why Choose Cowork Kerala?
                 </h2>
                 <p className="mt-4 text-lg text-gray-700 md:text-xl">
-                    EXPERIENCE THE DIFFERENCE WITH KERALA'S MOST TRUSTED COWORKING PLATFORM
+                    EXPERIENCE THE DIFFERENCE WITH KERALA{"'"}S MOST TRUSTED COWORKING PLATFORM
                 </p>
             </div>
 
