@@ -4,17 +4,18 @@ import HeroSection from './Section/HeroSection';
 import VirtualOfficeServices from './Section/VirtualOfficeServices';
 import ContactForm from './Section/ContactForm';
 import ProfessionalPresence from './Section/ProfessionalPresence';
+import Fixedw from '@/components/ui/Fixedw';
 
 const VirtualOffice = () => {
     return (
-        <div className="container mx-auto px-4 md:px-8">
+        <div>
             <Header />
-            <div className="mt-8 space-y-12">
+            <Fixedw>
                 <HeroSection />
                 <VirtualOfficeServices />
                 <ContactForm />
                 <ProfessionalPresence />
-            </div>
+            </Fixedw>
         </div>
     );
 };

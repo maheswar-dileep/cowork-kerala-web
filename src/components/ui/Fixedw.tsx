@@ -1,11 +1,15 @@
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
     children: React.ReactNode;
+    className?: string;
 };
 
-const Fixedw = ({ children }: Props) => {
-    return <div className="px-6 md:px-0 md:max-w-[85vw] mx-auto">{children}</div>;
+const Fixedw = ({ children, className }: Props) => {
+    return (
+        <div className={twMerge('px-6 md:px-0 md:max-w-[85vw] mx-auto', className)}>{children}</div>
+    );
 };
 
 export default Fixedw;

@@ -1,5 +1,9 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
+import { useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Location = {
     id: string;
@@ -9,6 +13,54 @@ type Location = {
 };
 
 const LOCATIONS: Location[] = [
+    {
+        id: 'opera',
+        title: 'Opéra',
+        subtitle: 'Pl. de la Mairie, 35000 Rennes',
+        image: '/images/thumb-1.jpg',
+    },
+    {
+        id: 'commerce',
+        title: 'Commerce',
+        subtitle: 'Pl. de la République, 35000 Rennes',
+        image: '/images/thumb-2.png',
+    },
+    {
+        id: 'triomphe',
+        title: 'Triomphe',
+        subtitle: 'Pl. Charles de Gaulle, 75008 Paris',
+        image: '/images/thumb-1.jpg',
+    },
+    {
+        id: 'gustave',
+        title: 'Gustave Eiffel',
+        subtitle: 'Av. Gustave Eiffel, 75007 Paris',
+        image: '/images/thumb-2.png',
+    },
+    {
+        id: 'opera',
+        title: 'Opéra',
+        subtitle: 'Pl. de la Mairie, 35000 Rennes',
+        image: '/images/thumb-1.jpg',
+    },
+    {
+        id: 'commerce',
+        title: 'Commerce',
+        subtitle: 'Pl. de la République, 35000 Rennes',
+        image: '/images/thumb-2.png',
+    },
+    {
+        id: 'triomphe',
+        title: 'Triomphe',
+        subtitle: 'Pl. Charles de Gaulle, 75008 Paris',
+        image: '/images/thumb-1.jpg',
+    },
+    {
+        id: 'gustave',
+        title: 'Gustave Eiffel',
+        subtitle: 'Av. Gustave Eiffel, 75007 Paris',
+        image: '/images/thumb-2.png',
+    },
     {
         id: 'opera',
         title: 'Opéra',
@@ -71,13 +123,53 @@ const LocationCard = ({ location }: { location: Location }) => {
 };
 
 const OtherLocationsSection = () => {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: false,
+        align: 'start',
+        containScroll: 'trimSnaps',
+    });
+
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext();
+    }, [emblaApi]);
+
     return (
         <section className="w-full">
-            <h3 className="mb-6 text-2xl font-semibold md:text-3xl">Other locations in the city</h3>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-8">
-                {LOCATIONS.map((loc) => (
-                    <LocationCard key={loc.id} location={loc} />
-                ))}
+            <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-semibold md:text-3xl">Other locations in the city</h3>
+                <div className="hidden gap-2">
+                    <button
+                        onClick={scrollPrev}
+                        className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                        aria-label="Previous slide"
+                    >
+                        <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                        onClick={scrollNext}
+                        className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                        aria-label="Next slide"
+                    >
+                        <ChevronRight className="w-5 h-5" />
+                    </button>
+                </div>
+            </div>
+
+            <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex gap-6">
+                    {LOCATIONS.map((loc) => (
+                        <div
+                            key={loc.id}
+                            className="flex-[0_0_80%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] xl:flex-[0_0_23%] pl-1"
+                        >
+                            <LocationCard location={loc} />
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );
