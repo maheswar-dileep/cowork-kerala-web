@@ -8,15 +8,13 @@ import Fixedw from '@/components/ui/Fixedw';
 
 const VirtualOffice = () => {
     return (
-        <div>
-            <Header />
-            <Fixedw>
+            <Fixedw className="container mx-auto md:px-8 flex flex-col gap-12">
+                <Header />
                 <HeroSection />
                 <VirtualOfficeServices />
                 <ContactForm />
                 <ProfessionalPresence />
             </Fixedw>
-        </div>
     );
 };
 
