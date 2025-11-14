@@ -43,46 +43,46 @@ const WhyChoose = () => {
     ];
 
     return (
-        <section className="space-y-16">
+        <section className="w-full py-8 md:py-12 lg:py-16">
             {/* Top Section - Why Choose */}
-            <div className="text-center">
-                <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">
+            <div className="text-center mb-8 md:mb-12 lg:mb-16">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 md:mb-4">
                     Why Choose Cowork Kerala?
                 </h2>
-                <p className="mt-4 text-lg text-gray-700 md:text-xl">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-700 uppercase tracking-wide px-4">
                     EXPERIENCE THE DIFFERENCE WITH KERALA{"'"}S MOST TRUSTED COWORKING PLATFORM
                 </p>
             </div>
 
             {/* Feature Grid */}
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12 lg:mb-16">
                 {features.map((feature, index) => {
                     const IconComponent = feature.icon;
                     return (
                         <div
                             key={index}
-                            className="rounded-xl bg-gray-50 p-6 shadow-sm hover:shadow-md transition-shadow"
+                            className="rounded-xl md:rounded-2xl bg-gray-50 p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow"
                         >
-                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary-100">
-                                <IconComponent className="h-6 w-6 text-primary-600" />
+                            <div className="mb-3 md:mb-4 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-[#CFEAB1]">
+                                <IconComponent className="h-5 w-5 md:h-6 md:w-6 text-zinc-800" />
                             </div>
-                            <h3 className="mb-2 text-lg font-semibold text-gray-900">
+                            <h3 className="mb-1.5 md:mb-2 text-base md:text-lg font-semibold text-gray-900">
                                 {feature.title}
                             </h3>
-                            <p className="text-sm text-gray-600">{feature.description}</p>
+                            <p className="text-xs md:text-sm text-gray-600 leading-relaxed">{feature.description}</p>
                         </div>
                     );
                 })}
             </div>
 
             {/* Bottom Section - Call to Action */}
-            <div className="overflow-hidden rounded-3xl bg-primary-100">
-                <div className="grid gap-8 md:grid-cols-12 md:gap-12">
-                    <div className="md:col-span-7 p-8 md:p-12">
-                        <h3 className="text-3xl font-bold text-gray-900 md:text-4xl">
+            <div className="overflow-hidden rounded-2xl md:rounded-3xl bg-[#CFEAB1]/30">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
+                    <div className="md:col-span-7 p-6 sm:p-8 md:p-10 lg:p-12">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
                             Discover your perfect workspace with Cowork
                         </h3>
-                        <p className="mt-4 text-gray-700 md:text-lg">
+                        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
                             We connect you to top coworking spaces and virtual offices across
                             Kerala. Compare prices, explore amenities, and book instantly—perfect
                             for freelancers, startups, and businesses seeking flexible, professional
@@ -90,14 +90,13 @@ const WhyChoose = () => {
                         </p>
                     </div>
                     <div className="md:col-span-5 relative">
-                        <div className="relative h-80 w-full md:h-full">
+                        <div className="relative h-64 sm:h-80 md:h-full min-h-[300px] w-full">
                             <Image
                                 src="/images/hero-banner/people-coworking.png"
                                 alt="People working in a modern coworking space"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, 40vw"
-                                priority
                             />
                         </div>
                     </div>

@@ -70,63 +70,63 @@ const ITEMS: FeaturedItem[] = [
 ];
 
 const Pill = ({ children }: { children: React.ReactNode }) => (
-    <span className="inline-flex items-center gap-1 rounded-md bg-gray-100 px-2 py-1 text-[11px] text-gray-900 md:text-xs">
+    <span className="inline-flex items-center gap-1 rounded-md bg-gray-100 px-2 py-1 text-[10px] sm:text-[11px] md:text-xs text-gray-900">
         {children}
     </span>
 );
 
 const FeaturedCard = ({ item }: { item: FeaturedItem }) => {
     return (
-        <article className="space-y-2">
-            <div className="relative overflow-hidden rounded-2xl">
-                <div className="relative h-56 w-full md:h-60">
+        <article className="space-y-2 md:space-y-3">
+            <div className="relative overflow-hidden rounded-xl md:rounded-2xl">
+                <div className="relative h-48 sm:h-52 md:h-56 lg:h-60 w-full">
                     <Image
                         src={item.image}
                         alt={item.title}
                         fill
                         className="object-cover"
-                        priority
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 md:gap-2">
                 <Pill>
-                    <Wifi size={14} /> {item.wifi}
+                    <Wifi size={12} className="md:w-3.5 md:h-3.5" /> {item.wifi}
                 </Pill>
                 <Pill>
-                    <Users size={14} /> {item.seats}
+                    <Users size={12} className="md:w-3.5 md:h-3.5" /> {item.seats}
                 </Pill>
                 <Pill>
-                    <Ruler size={14} /> {item.area}
+                    <Ruler size={12} className="md:w-3.5 md:h-3.5" /> {item.area}
                 </Pill>
             </div>
-            <div className="mt-1 text-base font-medium md:text-lg">{item.title}</div>
-            <div className="text-xs text-gray-600 md:text-sm">{item.price}</div>
+            <div className="mt-1 text-sm sm:text-base md:text-lg font-medium text-zinc-900">{item.title}</div>
+            <div className="text-xs sm:text-sm text-gray-600">{item.price}</div>
         </article>
     );
 };
 
 const Featured = () => {
     return (
-        <section className="space-y-6">
-            <div className="text-center">
-                <h2 className="text-3xl font-semibold md:text-5xl">
+        <section className="w-full py-8 md:py-12 lg:py-16">
+            <div className="text-center mb-8 md:mb-10 lg:mb-12">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-900 mb-2 md:mb-3">
                     Featured Workspaces in Kerala
                 </h2>
-                <p className="mt-2 text-xs text-gray-700 md:text-sm">
+                <p className="text-xs sm:text-sm md:text-base text-gray-700 uppercase tracking-wide">
                     Handpicked premium coworking spaces and virtual offices across God{`'`}s Own
                     Country
                 </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-10">
                 {ITEMS.map((it) => (
                     <FeaturedCard key={it.id} item={it} />
                 ))}
             </div>
 
             <div className="flex justify-center">
-                <button className="rounded-full bg-primary-100 px-5 py-2 text-gray-900 hover:bg-primary-200">
+                <button className="rounded-full bg-[#CFEAB1] px-5 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-medium text-zinc-900 hover:bg-[#bfda9f] transition-colors tracking-wide">
                     DISCOVER MORE
                 </button>
             </div>

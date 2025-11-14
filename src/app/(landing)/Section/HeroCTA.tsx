@@ -6,32 +6,32 @@ const HeroCTA = () => {
     return (
         <section className="relative overflow-hidden">
             {/* Background Image with Dark Overlay */}
-            <div className="relative h-96 w-full md:h-[500px]">
+            <div className="relative h-80 sm:h-96 md:h-[450px] lg:h-[500px] w-full">
                 <Image
                     src="/images/hero-banner/people-coworking.png"
                     alt="Modern coworking space with warm lighting"
                     fill
                     className="object-cover"
-                    priority
+                    sizes="100vw"
                 />
-                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 bg-black/60" />
             </div>
 
             {/* Content Overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
-                <h2 className="mb-8 text-4xl font-bold leading-tight md:text-6xl">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+                <h2 className="mb-6 md:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl">
                     Welcome a new way of
                     <br />
                     productivity & collaboration
                 </h2>
 
-                <div className="flex flex-col items-center gap-4 sm:flex-row">
-                    <button className="rounded-full bg-primary-100 px-8 py-3 text-lg font-semibold text-gray-900 hover:bg-primary-200 transition-colors">
+                <div className="flex flex-col xs:flex-row items-center gap-3 md:gap-4">
+                    <button className="rounded-full bg-[#CFEAB1] px-6 md:px-8 py-2.5 md:py-3 text-sm md:text-base lg:text-lg font-semibold text-gray-900 hover:bg-[#bfda9f] transition-colors tracking-wide">
                         BOOK A SPACE
                     </button>
 
-                    <button className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-100 text-gray-900 hover:bg-primary-200 transition-colors">
-                        <ArrowUpRight className="h-6 w-6" />
+                    <button className="flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-[#CFEAB1] text-gray-900 hover:bg-[#bfda9f] transition-colors">
+                        <ArrowUpRight className="h-5 w-5 md:h-6 md:w-6" />
                     </button>
                 </div>
             </div>

@@ -11,13 +11,21 @@ import SpaceAdapts from './Section/SpaceAdapts';
 
 const Page = () => {
     return (
-        <div className="grid grid-cols-1 md:gap-y-12">
+        <div className="min-h-screen">
             <Fixedw>
                 <Header />
+            </Fixedw>
+            <Fixedw>
                 <Hero />
+            </Fixedw>
+            <Fixedw>
                 <SpaceAdapts />
+            </Fixedw>
+            <Fixedw>
                 <Featured />
-                <PopularLocations/>
+            </Fixedw>
+            <Fixedw>
+                <PopularLocations />
             </Fixedw>
             <ContactForm />
             <Fixedw>
