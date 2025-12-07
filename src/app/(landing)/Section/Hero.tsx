@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 
 const Hero = () => {
     const [locations, setLocations] = useState<Location[]>([]);
-    const router = useRouter()
+    const router = useRouter();
 
     useEffect(() => {
         const fetchLocations = async () => {
@@ -74,7 +74,7 @@ const Hero = () => {
 
                     {/* CTA */}
                     <div className="flex items-center gap-3 md:gap-4 pt-2 md:pt-4">
-                        <button onClick={() => router.push('/workspace')} className="h-11 md:h-12 px-5 md:px-6 rounded-full bg-zinc-900 text-white text-xs md:text-sm font-medium tracking-wide hover:bg-zinc-800 transition-colors">
+                        <button onClick={() => router.push('/workspace')} className="h-11 md:h-12 px-5 md:px-6 rounded-full bg-zinc-900 text-white text-xs md:text-sm font-medium tracking-wide hover:bg-zinc-800 transition-colors cursor-pointer">
                             FIND BEST WORKSPACE
                         </button>
                         <button
