@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Mail } from 'lucide-react';
 
 const HeroSection = () => {
     return (
         <section className="w-full bg-primary-100 p-6 md:p-12 mb-12 md:mb-20 px-6">
-            <div className="px-6 md:max-w-[85vw] mx-auto">
+            <div className="px-4 md:px-[12%] mx-auto">
                 <h1 className="text-4xl md:text-6xl font-semibold text-zinc-900 mb-12">
                     Private Office
                 </h1>
@@ -14,12 +14,12 @@ const HeroSection = () => {
                     {/* Left: Large Image */}
                     <div className="md:col-span-7 relative h-[300px] md:h-[400px] rounded-3xl overflow-hidden">
                         <Image
-                            src="/images/glimpse/office-floor.png" // Placeholder
+                            src="/images/private-office/hero-1.png"
                             alt="Private Office"
                             fill
-                            className="object-cover aspect-square"
+                            className="object-fill aspect-square"
                         />
-                        <div className="absolute bottom-6 left-6 max-w-sm text-white text-sm font-medium leading-relaxed  bg-black/50 drop-shadow-md">
+                        <div className="absolute bottom-6 left-6 max-w-sm text-white text-sm font-medium leading-relaxed  bg-black/50 drop-shadow-md p-2 rounded-xl">
                             Get the privacy and focus you need with a fully private office space.
                             24/7 access and all the benefits of our coworking community.
                         </div>
@@ -32,10 +32,10 @@ const HeroSection = () => {
                                 Professional business address with mail handling services for remote
                                 teams.
                             </h2>
-                            <button className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-zinc-900 transition-transform hover:scale-105">
+                            <button className="inline-flex items-center gap-2 rounded-full bg-white p-2 px-3 text-sm font-bold text-zinc-900 transition-transform hover:scale-105">
                                 <span>Contact us</span>
-                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-900 text-white">
-                                    <ArrowUpRight size={14} />
+                                <div className="flex size-8 items-center justify-center rounded-full bg-zinc-900 text-white">
+                                    <Mail size={18} />
                                 </div>
                             </button>
                         </div>
@@ -43,7 +43,7 @@ const HeroSection = () => {
                         <div className="grid grid-cols-2 gap-4 h-full">
                             <div className="relative h-[150px] md:h-auto rounded-3xl overflow-hidden">
                                 <Image
-                                    src="/images/glimpse/standing-desk.png" // Placeholder
+                                    src="/images/private-office/hero-2.png"
                                     alt="Office detail"
                                     fill
                                     className="object-cover"
@@ -51,7 +51,7 @@ const HeroSection = () => {
                             </div>
                             <div className="relative h-[150px] md:h-auto rounded-3xl overflow-hidden">
                                 <Image
-                                    src="/images/glimpse/meeting-room.png" // Placeholder
+                                    src="/images/private-office/hero-3.png"
                                     alt="Meeting room"
                                     fill
                                     className="object-cover"
