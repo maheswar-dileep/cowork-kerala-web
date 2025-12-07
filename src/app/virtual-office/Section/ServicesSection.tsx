@@ -1,33 +1,32 @@
-import React from 'react';
 import Image from 'next/image';
 
 const services = [
     {
         id: '01',
         title: 'Virtual office for GST Registration',
-        desc: 'Get a credible address for your business and file your taxes on time. Secure and hassle-free registration support.',
-        tag: 'Only ₹1000',
-        image: '/images/glimpse/office-floor.png', // Using generated image
+        desc: 'Build credibility for your business with a prestigious address and hassle-free GST registration support.',
+        tag: 'Get Quote',
+        image: '/images/virtual-office/card-1.png',
     },
     {
         id: '02',
         title: 'Virtual office for Business Registration',
-        desc: 'Establish your company presence. Use our premium address for all your official business documents.',
-        tag: 'Only ₹1500',
-        image: '/images/glimpse/open-office.png', // Using generated image
+        desc: 'Establish your company with ease and gain instant access to a professional business identity.',
+        tag: 'Get Quote',
+        image: '/images/virtual-office/card-2.png',
     },
     {
         id: '03',
         title: 'Virtual office for Mailing Address',
-        desc: 'Get a professional address for mailing. We handle your mail and packages with care and confidentiality.',
-        tag: 'Only ₹500',
-        image: '/images/glimpse/meeting-room.png', // Using generated image
+        desc: 'Get a secure and reliable mailing address to manage all your business correspondence seamlessly.',
+        tag: 'Get Quote',
+        image: '/images/virtual-office/card-3.png',
     },
 ];
 
 const ServicesSection = () => {
     return (
-        <section className="w-full bg-primary-100 py-16 px-6 md:px-12 mb-12 md:mb-20">
+        <section className="w-full bg-primary-100 pt-16 px-6 md:px-[15%] mb-12 md:mb-20">
             <div className="text-center mb-12 flex flex-col items-center">
                 <span className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-2 block bg-primary-50 w-fit text-center p-2 px-4 rounded-full">Our Services</span>
                 <h2 className="text-3xl md:text-5xl font-semibold text-zinc-900">Virtual Office Services</h2>
@@ -40,14 +39,14 @@ const ServicesSection = () => {
                             <span className="text-8xl font-bold text-primary-500">{service.id}</span>
                         </div>
 
-                        <h3 className="text-xl font-bold text-zinc-900 mb-4 max-w-[200px]">{service.title}</h3>
+                        <h3 className="text-xl font-bold text-zinc-900 mb-4 max-w-[300px]">{service.title}</h3>
                         <p className="text-sm text-zinc-600 mb-6 leading-relaxed">{service.desc}</p>
 
                         <span className="inline-block bg-[#D4E7A6] text-[#1A2818] text-xs font-bold px-3 py-1 rounded-full mb-8">
                             {service.tag}
                         </span>
 
-                        <div className="w-full h-48 relative rounded-2xl overflow-hidden mt-auto">
+                        <div className="w-full h-72 relative rounded-t-2xl overflow-hidden mt-auto">
                             <Image
                                 src={service.image}
                                 alt={service.title}
