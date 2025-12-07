@@ -7,7 +7,7 @@ import ServicesSection from './Section/ServicesSection';
 import ContactSection from './Section/ContactSection';
 import FeatureSection from './Section/FeatureSection';
 
-type Props = unknown;
+
 
 const VirtualOfficePage = () => {
     return (

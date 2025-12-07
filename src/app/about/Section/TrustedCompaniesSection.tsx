@@ -27,9 +27,9 @@ const TrustedCompaniesSection = () => {
                     Kerala&apos;s most innovative companies trust us{' '}
                 </h2>
                 <p className="max-w-2xl text-zinc-600 leading-relaxed">
-                    We're proud to support a diverse range of businesses, from innovative startups
-                    to established industry leaders. Discover how our flexible workspaces and
-                    vibrant community have helped these companies thrive and grow.
+                    We&apos;re proud to support a diverse range of businesses, from innovative
+                    startups to established industry leaders. Discover how our flexible workspaces
+                    and vibrant community have helped these companies thrive and grow.
                 </p>
             </div>
 

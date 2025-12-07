@@ -7,8 +7,6 @@ import ContactSection from './Section/ContactSection';
 import GallerySection from './Section/GallerySection';
 import SolutionsSection from './Section/SolutionsSection';
 
-type Props = unknown;
-
 const PrivateOfficePage = () => {
     return (
         <>

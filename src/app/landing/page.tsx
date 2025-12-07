@@ -11,8 +11,6 @@ import WhyChooseSection from './Section/WhyChooseSection';
 import DiscoverSection from './Section/DiscoverSection';
 import WelcomeSection from './Section/WelcomeSection';
 
-type Props = unknown;
-
 const LandingPage = () => {
     return (
         <>
