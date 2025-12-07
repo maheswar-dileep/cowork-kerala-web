@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Wifi, Clock, Users, ArrowRight } from 'lucide-react';
 import { BiChair } from 'react-icons/bi';
 
@@ -36,12 +37,15 @@ const CtaSection = () => {
                         </div>
 
                         <div className="mt-6 flex items-center justify-between">
-                            <button className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-gray-900 hover:bg-gray-100">
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-gray-900 hover:bg-gray-100"
+                            >
                                 Contact us
                                 <span className="grid size-6 place-items-center rounded-full bg-black text-white">
                                     <ArrowRight size={14} />
                                 </span>
-                            </button>
+                            </Link>
                             <div className="hidden items-center gap-3 md:flex">
                                 <div className="flex -space-x-2">
                                     <Image

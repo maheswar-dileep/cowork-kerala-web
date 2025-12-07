@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { Wifi, Users, Ruler } from 'lucide-react';
 
@@ -100,7 +101,9 @@ const FeaturedCard = ({ item }: { item: FeaturedItem }) => {
                     <Ruler size={12} className="md:w-3.5 md:h-3.5" /> {item.area}
                 </Pill>
             </div>
-            <div className="mt-1 text-sm sm:text-base md:text-lg font-medium text-zinc-900">{item.title}</div>
+            <div className="mt-1 text-sm sm:text-base md:text-lg font-medium text-zinc-900">
+                {item.title}
+            </div>
             <div className="text-xs sm:text-sm text-gray-600">{item.price}</div>
         </article>
     );
@@ -126,9 +129,12 @@ const Featured = () => {
             </div>
 
             <div className="flex justify-center">
-                <button className="rounded-full bg-[#CFEAB1] px-5 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-medium text-zinc-900 hover:bg-[#bfda9f] transition-colors tracking-wide">
+                <Link
+                    href="/workspace"
+                    className="rounded-full bg-[#CFEAB1] px-5 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-medium text-zinc-900 hover:bg-[#bfda9f] transition-colors tracking-wide"
+                >
                     DISCOVER MORE
-                </button>
+                </Link>
             </div>
         </section>
     );

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -62,7 +63,8 @@ const PopularLocations = () => {
                     Popular Locations in Kerala
                 </h2>
                 <p className="text-xs sm:text-sm md:text-base text-zinc-700 tracking-wide uppercase px-4">
-                    EXPLORE COWORKING SPACES AND VIRTUAL OFFICES IN KERALA&apos;S MAJOR BUSINESS HUBS
+                    EXPLORE COWORKING SPACES AND VIRTUAL OFFICES IN KERALA&apos;S MAJOR BUSINESS
+                    HUBS
                 </p>
             </div>
 
@@ -111,9 +113,12 @@ const PopularLocations = () => {
 
             {/* CTA Button */}
             <div className="flex justify-center">
-                <button className="px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-[#CFEAB1] text-zinc-900 text-xs md:text-sm font-medium tracking-wide hover:bg-[#bfda9f] transition-colors uppercase">
+                <Link
+                    href="/workspace"
+                    className="px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-[#CFEAB1] text-zinc-900 text-xs md:text-sm font-medium tracking-wide hover:bg-[#bfda9f] transition-colors uppercase"
+                >
                     DISCOVER MORE
-                </button>
+                </Link>
             </div>
         </section>
     );

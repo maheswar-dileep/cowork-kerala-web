@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Mail } from 'lucide-react';
 
 const HeroSection = () => {
@@ -46,12 +47,15 @@ const HeroSection = () => {
                     </h1>
 
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                        <button className="flex items-center gap-3 bg-white text-zinc-900 pl-6 pr-2 py-2 rounded-full font-bold text-lg hover:bg-zinc-100 transition-colors">
+                        <Link
+                            href="/contact"
+                            className="flex items-center gap-3 bg-white text-zinc-900 pl-6 pr-2 py-2 rounded-full font-bold text-lg hover:bg-zinc-100 transition-colors"
+                        >
                             Contact us
                             <div className="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center text-white">
                                 <Mail size={18} />
                             </div>
-                        </button>
+                        </Link>
 
                         <p className="text-base md:text-lg font-medium max-w-md leading-relaxed text-white/90">
                             Redefining Workspaces with Virtual Offices That Give You a Global

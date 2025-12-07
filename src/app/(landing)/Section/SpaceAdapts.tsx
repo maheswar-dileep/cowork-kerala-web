@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { GiOfficeChair } from 'react-icons/gi';
 import { IoIosPeople } from 'react-icons/io';
@@ -63,9 +64,12 @@ const SpaceAdapts = () => {
 
                     {/* CTA Button */}
                     <div>
-                        <button className="px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-[#CFEAB1] text-zinc-900 text-xs md:text-sm font-medium tracking-wide hover:bg-[#bfda9f] transition-colors">
+                        <Link
+                            href="/workspace"
+                            className="px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-[#CFEAB1] text-zinc-900 text-xs md:text-sm font-medium tracking-wide hover:bg-[#bfda9f] transition-colors inline-block"
+                        >
                             DISCOVER MORE
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Stats */}

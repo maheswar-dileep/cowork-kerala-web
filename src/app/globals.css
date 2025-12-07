@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @theme {
     --color-primary-50: #ebffd8;
@@ -10,14 +10,26 @@
     --color-primary-400: #4d898b;
     --color-primary-500: #3b6874;
     --color-primary-600: #2f4858;
-    --color-primary-700: #76A04E;
+    --color-primary-700: #76a04e;
 }
 
 body {
-    font-family: "Manrope", sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
-
 
 .max-w-default {
     max-width: 80vw;
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply rounded-full bg-[#CFEAB1] px-5 py-2.5 text-xs font-medium text-zinc-900 hover:bg-[#bfda9f] transition-colors tracking-wide cursor-pointer uppercase md:px-6 md:py-3 md:text-sm inline-block;
+}
+
+.btn-dark {
+    @apply rounded-full bg-zinc-900 text-white px-5 py-2.5 text-xs font-medium tracking-wide hover:bg-zinc-800 transition-colors cursor-pointer uppercase md:px-6 md:py-3 md:text-sm inline-block;
+}
+
+.btn-contact {
+    @apply inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-zinc-900 hover:bg-zinc-100 transition-colors cursor-pointer;
 }

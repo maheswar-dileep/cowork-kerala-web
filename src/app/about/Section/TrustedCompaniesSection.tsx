@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Mail } from 'lucide-react';
 
 const companies = [
@@ -47,12 +48,15 @@ const TrustedCompaniesSection = () => {
                 </div>
             </div>
 
-            <button className="inline-flex items-center gap-2 rounded-full bg-[#1A2818] px-6 py-3 text-white transition-transform hover:scale-105">
+            <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-[#1A2818] px-6 py-3 text-white transition-transform hover:scale-105"
+            >
                 <span>Contact us</span>
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#1A2818]">
                     <Mail size={14} />
                 </div>
-            </button>
+            </Link>
         </section>
     );
 };

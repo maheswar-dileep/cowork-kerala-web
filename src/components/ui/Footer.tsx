@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import Fixedw from './Fixedw';
 
@@ -41,14 +42,14 @@ const Footer = () => {
                                 <h3 className="text-sm font-semibold text-gray-900">Company</h3>
                                 <ul className="mt-3 space-y-2 text-sm text-gray-700">
                                     <li>
-                                        <a className="hover:opacity-80" href="#">
+                                        <Link className="hover:opacity-80" href="/">
                                             Home
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a className="hover:opacity-80" href="#">
+                                        <Link className="hover:opacity-80" href="/about">
                                             About Us
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -56,14 +57,14 @@ const Footer = () => {
                                 <h3 className="text-sm font-semibold text-gray-900">Spaces</h3>
                                 <ul className="mt-3 space-y-2 text-sm text-gray-700">
                                     <li>
-                                        <a className="hover:opacity-80" href="#">
+                                        <Link className="hover:opacity-80" href="/private-office">
                                             Private Office
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a className="hover:opacity-80" href="#">
+                                        <Link className="hover:opacity-80" href="/virtual-office">
                                             Virtual Office
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -71,14 +72,14 @@ const Footer = () => {
                                 <h3 className="text-sm font-semibold text-gray-900">Quick Link</h3>
                                 <ul className="mt-3 space-y-2 text-sm text-gray-700">
                                     <li>
-                                        <a className="hover:opacity-80" href="#">
+                                        <Link className="hover:opacity-80" href="/workspace">
                                             Spaces
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a className="hover:opacity-80" href="#">
-                                            Events
-                                        </a>
+                                        <Link className="hover:opacity-80" href="/contact">
+                                            Contact
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

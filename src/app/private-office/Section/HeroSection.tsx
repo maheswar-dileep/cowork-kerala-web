@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowUpRight, Mail } from 'lucide-react';
 
 const HeroSection = () => {
@@ -32,12 +33,15 @@ const HeroSection = () => {
                                 Professional business address with mail handling services for remote
                                 teams.
                             </h2>
-                            <button className="inline-flex items-center gap-2 rounded-full bg-white p-2 px-3 text-sm font-bold text-zinc-900 transition-transform hover:scale-105">
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center gap-2 rounded-full bg-white p-2 px-3 text-sm font-bold text-zinc-900 transition-transform hover:scale-105"
+                            >
                                 <span>Contact us</span>
                                 <div className="flex size-8 items-center justify-center rounded-full bg-zinc-900 text-white">
                                     <Mail size={18} />
                                 </div>
-                            </button>
+                            </Link>
                         </div>
 
                         <div className="grid grid-cols-2 gap-4 h-full">
