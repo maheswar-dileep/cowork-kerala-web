@@ -1,0 +1,104 @@
+'use client';
+import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
+import useEmblaCarousel from 'embla-carousel-react';
+import { cn } from '@/lib/utils';
+
+const locations = [
+    { name: 'Thrissur', image: '/images/glimpse/office-floor.png' },
+    { name: 'Kozhikode', image: '/images/glimpse/open-office.png' },
+    { name: 'Kochi', image: '/images/glimpse/group-discussion.png' },
+    { name: 'Trivandrum', image: '/images/glimpse/standing-desk.png' },
+    { name: 'Kollam', image: '/images/glimpse/meeting-room.png' },
+    { name: 'Kannur', image: '/images/glimpse/open-office.png' },
+];
+
+const LocationsSection = () => {
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+    const onInit = useCallback((emblaApi: any) => {
+        setScrollSnaps(emblaApi.scrollSnapList());
+    }, []);
+
+    const onSelect = useCallback((emblaApi: any) => {
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+    }, []);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+
+        onInit(emblaApi);
+        onSelect(emblaApi);
+        emblaApi.on('reInit', onInit);
+        emblaApi.on('reInit', onSelect);
+        emblaApi.on('select', onSelect);
+    }, [emblaApi, onInit, onSelect]);
+
+    const scrollTo = useCallback(
+        (index: number) => emblaApi && emblaApi.scrollTo(index),
+        [emblaApi]
+    );
+
+    return (
+        <section className="w-full mb-20">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+                    Popular Locations in Kerala
+                </h2>
+                <p className="text-zinc-500 text-sm uppercase tracking-widest">
+                    Explore coworking spaces and virtual offices across major business hubs
+                </p>
+            </div>
+
+            <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex -ml-4 md:-ml-6">
+                    {locations.map((loc, index) => (
+                        <div
+                            key={index}
+                            className="flex-[0_0_50%] md:flex-[0_0_25%] pl-4 md:pl-6 min-w-0"
+                        >
+                            <div className="flex flex-col gap-3 group cursor-pointer">
+                                <div className="relative w-full aspect-[4/5] rounded-[30px] overflow-hidden">
+                                    <Image
+                                        src={loc.image}
+                                        alt={loc.name}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                </div>
+                                <h3 className="text-center font-bold text-zinc-900 group-hover:text-primary-600 transition-colors">
+                                    {loc.name}
+                                </h3>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="flex justify-center mt-12">
+                <div className="flex gap-2">
+                    {scrollSnaps.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => scrollTo(index)}
+                            className={cn(
+                                'h-1 rounded-full transition-all duration-300',
+                                index === selectedIndex ? 'w-8 bg-zinc-800' : 'w-2 bg-zinc-300'
+                            )}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            </div>
+            <div className="flex justify-center mt-6">
+                <button className="bg-primary-100 text-zinc-900 px-8 py-3 rounded-full text-sm font-bold hover:bg-primary-200 transition-colors uppercase tracking-wider">
+                    View All Locations
+                </button>
+            </div>
+        </section>
+    );
+};
+
+export default LocationsSection;

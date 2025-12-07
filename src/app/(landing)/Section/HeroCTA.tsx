@@ -25,7 +25,7 @@ const HeroCTA = () => {
                     productivity & collaboration
                 </h2>
 
-                <div className="flex flex-col xs:flex-row items-center gap-3 md:gap-4">
+                <div className="flex items-center gap-3 md:gap-4">
                     <button className="rounded-full bg-[#CFEAB1] px-6 md:px-8 py-2.5 md:py-3 text-sm md:text-base lg:text-lg font-semibold text-gray-900 hover:bg-[#bfda9f] transition-colors tracking-wide">
                         BOOK A SPACE
                     </button>
