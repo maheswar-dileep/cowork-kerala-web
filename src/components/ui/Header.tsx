@@ -16,26 +16,26 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="#" className="hover:opacity-80 flex gap-2 items-end-safe">
+                        <Link href="/virtual-office" className="hover:opacity-80 flex gap-2 items-end-safe">
                             <span className="align-middle">Virtual Office</span>
                             <IoIosArrowDown size={18} className="font-light" />
                         </Link>
                     </li>
                     <li>
-                        <Link href="#" className="hover:opacity-80 flex gap-2 items-end-safe">
+                        <Link href="/private-office" className="hover:opacity-80 flex gap-2 items-end-safe">
                             <span className="align-middle">Private Office</span>
                             <IoIosArrowDown size={18} className="font-light" />
                         </Link>
                     </li>
                     <li>
-                        <a href="#" className="hover:opacity-80">
+                        <Link href="/about" className="hover:opacity-80">
                             About
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className="hover:opacity-80">
+                        <Link href="/contact" className="hover:opacity-80">
                             Contact
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>
