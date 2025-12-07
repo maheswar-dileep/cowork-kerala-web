@@ -37,16 +37,7 @@ const ContactForm = () => {
                                     className="h-12 w-full rounded-xl border-none bg-white px-4 text-zinc-900 placeholder:text-zinc-400 focus:ring-2 focus:ring-primary-400 focus:outline-none"
                                 />
                                 <div className="flex gap-2">
-                                    <div className="relative w-20">
-                                        <select className="h-12 w-full appearance-none rounded-xl border-none bg-white px-2 text-zinc-900 focus:ring-2 focus:ring-primary-400 focus:outline-none text-center">
-                                            <option selected>+91</option>
-                                            <option>+1</option>
-                                            <option>+44</option>
-                                        </select>
-                                        <span className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-xs">
-                                            ▼
-                                        </span>
-                                    </div>
+
                                     <input
                                         type="tel"
                                         placeholder="Phone*"
@@ -90,7 +81,7 @@ const ContactForm = () => {
                         </form>
                     </div>
 
-                    <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                    <div className="lg:col-span-4 hidden md:flex justify-center lg:justify-end">
                         <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full border-4 border-white overflow-hidden shadow-lg">
                             <Image
                                 src="/images/landing/cta.png"
