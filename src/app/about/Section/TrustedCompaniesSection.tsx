@@ -2,9 +2,18 @@ import React from 'react';
 import { Mail } from 'lucide-react';
 
 const companies = [
-    'LOGOIPSUM', 'logoipsum', 'logoipsum', 'logoipsum',
-    'logoipsum', 'LOGOIPSUM', 'ULTRA CLEAR', 'IPSUM',
-    'logoipsum', 'LOGOIPSUM', 'LOGO IPSUM', 'ULTRA CLEAR'
+    'LOGOIPSUM',
+    'logoipsum',
+    'logoipsum',
+    'logoipsum',
+    'logoipsum',
+    'LOGOIPSUM',
+    'ULTRA CLEAR',
+    'IPSUM',
+    'logoipsum',
+    'LOGOIPSUM',
+    'LOGO IPSUM',
+    'ULTRA CLEAR',
 ];
 
 const TrustedCompaniesSection = () => {
@@ -15,10 +24,12 @@ const TrustedCompaniesSection = () => {
                     Companies
                 </span>
                 <h2 className="text-4xl font-semibold text-zinc-900 md:text-5xl">
-                    Trusted by the leading companies
+                    Kerala&apos;s most innovative companies trust us{' '}
                 </h2>
                 <p className="max-w-2xl text-zinc-600 leading-relaxed">
-                    We're proud to support a diverse range of businesses, from innovative startups to established industry leaders. Discover how our flexible workspaces and vibrant community have helped these companies thrive and grow.
+                    We're proud to support a diverse range of businesses, from innovative startups
+                    to established industry leaders. Discover how our flexible workspaces and
+                    vibrant community have helped these companies thrive and grow.
                 </p>
             </div>
 
@@ -26,7 +37,10 @@ const TrustedCompaniesSection = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center opacity-60 grayscale">
                     {/* Using text placeholders for logos as requested/planned */}
                     {companies.map((company, i) => (
-                        <div key={i} className="text-xl font-bold text-zinc-800 uppercase tracking-widest">
+                        <div
+                            key={i}
+                            className="text-xl font-bold text-zinc-800 uppercase tracking-widest"
+                        >
                             {company}
                         </div>
                     ))}

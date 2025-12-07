@@ -11,9 +11,9 @@ import WhyChooseSection from './Section/WhyChooseSection';
 import DiscoverSection from './Section/DiscoverSection';
 import WelcomeSection from './Section/WelcomeSection';
 
-type Props = {};
+type Props = unknown;
 
-const LandingPage = (props: Props) => {
+const LandingPage = () => {
     return (
         <>
             <Fixedw className="container mx-auto md:px-8 flex flex-col">

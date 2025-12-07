@@ -6,7 +6,6 @@ import HeroCTA from './Section/HeroCTA';
 import ContactForm from './Section/ContactForm';
 import Footer from '@/components/ui/Footer';
 import Fixedw from '@/components/ui/Fixedw';
-import PopularLocations from './Section/PopularLocations';
 import SpaceAdapts from './Section/SpaceAdapts';
 import LocationsSection from './Section/LocationsSection';
 

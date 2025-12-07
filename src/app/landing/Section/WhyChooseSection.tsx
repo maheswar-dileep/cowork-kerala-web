@@ -42,7 +42,7 @@ const WhyChooseSection = () => {
                     Why Choose Cowork Kerala?
                 </h2>
                 <p className="text-zinc-500 text-sm uppercase tracking-widest">
-                    Experience the difference with Kerala's most trusted coworking platform
+                    Experience the difference with Kerala&apos;s most trusted coworking platform
                 </p>
             </div>
 

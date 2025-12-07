@@ -1,7 +1,7 @@
-'use client';
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
+import { EmblaCarouselType } from 'embla-carousel';
 import { cn } from '@/lib/utils';
 
 const locations = [
@@ -18,11 +18,11 @@ const LocationsSection = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-    const onInit = useCallback((emblaApi: any) => {
+    const onInit = useCallback((emblaApi: EmblaCarouselType) => {
         setScrollSnaps(emblaApi.scrollSnapList());
     }, []);
 
-    const onSelect = useCallback((emblaApi: any) => {
+    const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
         setSelectedIndex(emblaApi.selectedScrollSnap());
     }, []);
 

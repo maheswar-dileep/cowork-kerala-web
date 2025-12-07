@@ -7,9 +7,9 @@ import ServicesSection from './Section/ServicesSection';
 import ContactSection from './Section/ContactSection';
 import FeatureSection from './Section/FeatureSection';
 
-type Props = {};
+type Props = unknown;
 
-const VirtualOffice = (props: Props) => {
+const VirtualOfficePage = () => {
     return (
         <>
             <Fixedw className="container mx-auto md:px-8 flex flex-col mb-12 md:mb-24">
@@ -28,4 +28,4 @@ const VirtualOffice = (props: Props) => {
     );
 };
 
-export default VirtualOffice;
+export default VirtualOfficePage;

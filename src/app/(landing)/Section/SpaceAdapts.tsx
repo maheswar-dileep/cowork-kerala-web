@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { Users, Briefcase, Building2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { GiOfficeChair } from 'react-icons/gi';
 import { IoIosPeople } from 'react-icons/io';
 import { PiLaptopFill } from 'react-icons/pi';

@@ -14,8 +14,8 @@ const ContactSection = () => {
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-8 md:p-12">
-                    <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6">
-                        Fill out the form, and we'll get back to you soon.
+                    <h2 className="text-3xl font-bold mb-4 text-white">
+                        Let&apos;s Find Your Perfect Office
                     </h2>
                     <div className="flex flex-col gap-3 text-white/90">
                         <div className="flex items-center gap-3">

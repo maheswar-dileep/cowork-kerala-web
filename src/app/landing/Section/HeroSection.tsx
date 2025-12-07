@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Search, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 const locations = [
     { name: 'Kochi', image: '/images/glimpse/office-floor.png' },

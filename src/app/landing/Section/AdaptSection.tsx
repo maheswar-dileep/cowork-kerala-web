@@ -12,7 +12,7 @@ const AdaptSection = () => {
                         About Cowork
                     </span>
                     <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 leading-tight">
-                        A Space That Adapts to Your Needs
+                        It&apos;s not just about space, it&apos;s about how you work. Needs
                     </h2>
                     <p className="text-zinc-600 leading-relaxed">
                         Whether you're a freelancer, a startup, or an established enterprise, we

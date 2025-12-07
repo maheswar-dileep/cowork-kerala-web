@@ -7,9 +7,9 @@ import ContactSection from './Section/ContactSection';
 import GallerySection from './Section/GallerySection';
 import SolutionsSection from './Section/SolutionsSection';
 
-type Props = {};
+type Props = unknown;
 
-const PrivateOffice = (props: Props) => {
+const PrivateOfficePage = () => {
     return (
         <>
             <Fixedw className="container mx-auto md:px-8 flex flex-col">
@@ -28,4 +28,4 @@ const PrivateOffice = (props: Props) => {
     );
 };
 
-export default PrivateOffice;
+export default PrivateOfficePage;
