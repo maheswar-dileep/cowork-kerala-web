@@ -69,33 +69,54 @@ const WhyChoose = () => {
                             <h3 className="mb-1.5 md:mb-2 text-base md:text-lg font-semibold text-gray-900">
                                 {feature.title}
                             </h3>
-                            <p className="text-xs md:text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                            <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                                {feature.description}
+                            </p>
                         </div>
                     );
                 })}
             </div>
 
             {/* Bottom Section - Call to Action */}
-            <div className="overflow-hidden rounded-2xl md:rounded-3xl bg-[#CFEAB1]/30">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
+            {/* Bottom Section - Call to Action */}
+            <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#CFEAB1] to-[#E8F5D6]">
+                {/* Background Decorative Elements */}
+                <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                    <Image
+                        src="/images/landing/Ellipse 1033.svg"
+                        alt=""
+                        width={500}
+                        height={500}
+                        className="absolute -bottom-32 -left-20 opacity-60"
+                    />
+                    <Image
+                        src="/images/landing/Group.svg"
+                        alt=""
+                        width={300}
+                        height={300}
+                        className="absolute top-0 left-0 opacity-40"
+                    />
+                </div>
+
+                <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center">
                     <div className="md:col-span-7 p-6 sm:p-8 md:p-10 lg:p-12">
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2B2B2B] mb-3 md:mb-4 leading-tight">
                             Discover your perfect workspace with Cowork
                         </h3>
-                        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+                        <p className="text-sm sm:text-base md:text-lg text-[#4A4A4A] leading-relaxed max-w-xl">
                             We connect you to top coworking spaces and virtual offices across
                             Kerala. Compare prices, explore amenities, and book instantly—perfect
                             for freelancers, startups, and businesses seeking flexible, professional
                             work environments.
                         </p>
                     </div>
-                    <div className="md:col-span-5 relative">
-                        <div className="relative h-64 sm:h-80 md:h-full min-h-[300px] w-full">
+                    <div className="md:col-span-5 relative h-full min-h-[300px] md:min-h-[400px] flex items-end justify-end">
+                        <div className="relative w-full h-full min-h-[300px] md:min-h-[400px] [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)] md:[mask-image:linear-gradient(to_right,transparent_0%,black_20%)]">
                             <Image
-                                src="/images/hero-banner/people-coworking.png"
-                                alt="People working in a modern coworking space"
+                                src="/images/landing/cta-banner-1.png"
+                                alt="Coworking space environment"
                                 fill
-                                className="object-cover"
+                                className="object-cover object-center md:object-left"
                                 sizes="(max-width: 768px) 100vw, 40vw"
                             />
                         </div>

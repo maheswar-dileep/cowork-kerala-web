@@ -89,7 +89,7 @@ const Footer = () => {
                         <div className="relative overflow-hidden rounded-3xl border border-gray-200">
                             <div className="relative aspect-[16/10] w-full">
                                 <Image
-                                    src="/images/hero-banner/people-coworking.png"
+                                    src="/images/footer/footer.png"
                                     alt="Coworking space"
                                     fill
                                     className="object-cover"
@@ -99,15 +99,15 @@ const Footer = () => {
                             </div>
 
                             <div className="absolute inset-x-0 bottom-0 p-5 md:p-8">
-                                <div className="max-w-xl rounded-2xl bg-black/40 p-4 text-white backdrop-blur">
+                                <div className="max-w-xl rounded-2xl p-4 text-white">
                                     <div className="text-xl font-medium">Newsletter</div>
                                     <div className="mt-3 flex items-center gap-3">
                                         <input
                                             type="email"
                                             placeholder="email@framer.com"
-                                            className="h-11 w-full rounded-full border border-white/30 bg-white/90 px-4 text-gray-900 placeholder:text-gray-500 focus:outline-none"
+                                            className="h-11 w-full rounded-md border border-white/30 bg-white/90 px-4 text-gray-900 placeholder:text-gray-500 focus:outline-none"
                                         />
-                                        <button className="shrink-0 rounded-full bg-white px-4 py-2 text-gray-900 hover:bg-gray-100">
+                                        <button className="shrink-0 rounded-md px-4 py-2 text-white bg-black hover:bg-gray-100">
                                             Connect
                                         </button>
                                     </div>
