@@ -120,4 +120,3 @@ const PopularLocations = () => {
 };
 
 export default PopularLocations;
-

@@ -83,7 +83,9 @@ const SpaceAdapts = () => {
                             <div className="text-4xl sm:text-5xl md:text-7xl font-normal text-zinc-900 mb-1 md:mb-2">
                                 2,000+
                             </div>
-                            <p className="text-xs sm:text-sm md:text-base text-zinc-600">5-Star Reviews</p>
+                            <p className="text-xs sm:text-sm md:text-base text-zinc-600">
+                                5-Star Reviews
+                            </p>
                         </div>
                     </div>
 
@@ -111,35 +113,39 @@ const SpaceAdapts = () => {
                 </div>
 
                 {/* Right Content */}
-                <div className="space-y-4 md:space-y-6">
+                <div className="space-y-6 md:space-y-8">
                     {/* Hero Image */}
-                    <div className="relative w-full aspect-video rounded-2xl md:rounded-3xl overflow-hidden">
+                    <div className="relative w-full rounded-3xl overflow-hidden">
                         <Image
-                            src="/images/hero-banner/people-coworking.png"
-                            alt="Modern coworking space"
-                            fill
+                            src="/images/landing/banner-3.png"
+                            alt="Coworking"
+                            width={1000}
+                            height={1000}
                             className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
                         />
                     </div>
 
                     {/* Service Cards */}
-                    <div className="space-y-3 md:space-y-4 rounded-xl md:rounded-2xl bg-white border border-zinc-200 hover:shadow-md transition-shadow">
+                    <div className="bg-white rounded-3xl border border-zinc-200 p-2">
                         {services.map((service, index) => {
                             const IconComponent = service.icon;
                             return (
                                 <div
                                     key={index}
-                                    className="flex items-start gap-3 md:gap-4 p-4 md:p-5 border-b-zinc-200 last:border-b-0"
+                                    className={`flex items-start gap-4 p-6 ${
+                                        index !== services.length - 1
+                                            ? 'border-b border-zinc-100'
+                                            : ''
+                                    }`}
                                 >
-                                    <div className="flex-shrink-0 w-10 h-10 md:w-16 md:h-16 rounded-full md:rounded-full bg-primary-100 flex items-center justify-center">
-                                        <IconComponent className="w-5 h-5 md:w-10 md:h-10 text-primary-400" />
+                                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#EBFFD8] flex items-center justify-center">
+                                        <IconComponent className="w-8 h-8 text-[#3b6874]" />
                                     </div>
-                                    <div clazinc-800ssName="flex-1">
-                                        <h3 className="text-base md:text-lg lg:text-xl font-semibold text-zinc-900 mb-0.5 md:mb-1">
+                                    <div className="flex-1 pt-1">
+                                        <h3 className="text-xl font-medium text-zinc-900 mb-2">
                                             {service.title}
                                         </h3>
-                                        <p className="text-xs md:text-sm text-zinc-600 leading-relaxed">
+                                        <p className="text-sm text-zinc-500 leading-relaxed">
                                             {service.description}
                                         </p>
                                     </div>

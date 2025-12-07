@@ -8,7 +8,7 @@ type Props = {
 
 const Fixedw = ({ children, className }: Props) => {
     return (
-        <div className={twMerge('px-6 md:px-0 md:max-w-[85vw] mx-auto', className)}>{children}</div>
+        <div className={twMerge('px-6 md:px-0 md:max-w-[80vw] mx-auto', className)}>{children}</div>
     );
 };
 

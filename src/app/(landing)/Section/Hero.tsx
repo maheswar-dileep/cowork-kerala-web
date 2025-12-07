@@ -43,25 +43,7 @@ const Hero = () => {
 
                     {/* Locations list */}
                     <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-3 md:gap-4 lg:gap-5">
-                        {[
-                            'Gurugram',
-                            'Hyderabad',
-                            'Bangalore',
-                            'Mumbai',
-                            'Chennai',
-                            'Lucknow',
-                            'Pune',
-                            'Noida',
-                            'Delhi',
-                            'Indore',
-                            'Ahmedabad',
-                            'Trivandrum',
-                            'Kochi',
-                            'Chandigarh',
-                            'Kolkata',
-                            'Coimbatore',
-                            'Goa',
-                        ].map((city) => (
+                        {['Kochi', 'Trivandrum', 'Calicut', 'Thrissur'].map((city) => (
                             <LocationCircle key={city} location={city} />
                         ))}
                     </div>
@@ -84,17 +66,17 @@ const Hero = () => {
                 <div className="lg:col-span-5 flex flex-col gap-6 md:gap-8">
                     <div className="w-full aspect-[4/3] rounded-2xl md:rounded-3xl bg-[#EBFFD8] overflow-hidden relative">
                         <Image
-                            src="/images/hero-banner/people-coworking.png"
+                            src="/images/landing/banner-1.png"
                             alt="Coworking space"
                             fill
                             className="object-cover"
                             priority
-                            sizes="(max-width: 1024px) 100vw, 40vw"
+                            sizes="(max-width: 1024px) 80vw, 32vw"
                         />
                     </div>
-                    <div className="w-full sm:w-4/5 aspect-[4/3] rounded-2xl md:rounded-3xl bg-[#EBFFD8] overflow-hidden relative">
+                    <div className="w-full aspect-[16/9] rounded-2xl md:rounded-3xl bg-[#EBFFD8] overflow-hidden relative">
                         <Image
-                            src="/images/hero-banner/b1.png"
+                            src="/images/landing/banner-2.png"
                             alt="Modern workspace"
                             fill
                             className="object-cover"
