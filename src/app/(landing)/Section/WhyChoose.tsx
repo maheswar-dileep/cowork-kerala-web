@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { Shield, Clock, Users, Headphones, MapPin, Gem } from 'lucide-react';
+import { Shield, Hourglass, Users, Headphones, MapPin, Gem } from 'lucide-react';
 
 const WhyChoose = () => {
     const features = [
@@ -11,7 +11,7 @@ const WhyChoose = () => {
                 'All our partner spaces in Kerala are verified and quality checked for your peace of mind.',
         },
         {
-            icon: Clock,
+            icon: Hourglass,
             title: 'Instant Booking',
             description:
                 'Book your workspace instantly with our seamless booking process across Kerala.',
@@ -20,7 +20,7 @@ const WhyChoose = () => {
             icon: Users,
             title: 'Kerala Community',
             description:
-                'Connect with like-minded professionals and entrepreneurs from across Kerala.',
+                'Connect with like-minded professionals and entrepreneurs from across Kerala..',
         },
         {
             icon: Headphones,
@@ -45,31 +45,34 @@ const WhyChoose = () => {
     return (
         <section className="w-full py-8 md:py-12 lg:py-16">
             {/* Top Section - Why Choose */}
-            <div className="text-center mb-8 md:mb-12 lg:mb-16">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 md:mb-4">
+            <div className="text-center mb-12 md:mb-16 lg:mb-20">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
                     Why Choose Cowork Kerala?
                 </h2>
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-700 uppercase tracking-wide px-4">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 uppercase tracking-widest px-4 font-medium">
                     EXPERIENCE THE DIFFERENCE WITH KERALA{"'"}S MOST TRUSTED COWORKING PLATFORM
                 </p>
             </div>
 
             {/* Feature Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12 lg:mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16 lg:mb-24">
                 {features.map((feature, index) => {
                     const IconComponent = feature.icon;
                     return (
                         <div
                             key={index}
-                            className="rounded-xl md:rounded-2xl bg-gray-50 p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow"
+                            className="flex flex-col items-center text-center p-6 md:p-8 rounded-3xl bg-white shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300"
                         >
-                            <div className="mb-3 md:mb-4 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-[#CFEAB1]">
-                                <IconComponent className="h-5 w-5 md:h-6 md:w-6 text-zinc-800" />
+                            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#EBFFD8]">
+                                <IconComponent
+                                    className="h-8 w-8 text-[#76A04E]"
+                                    strokeWidth={1.5}
+                                />
                             </div>
-                            <h3 className="mb-1.5 md:mb-2 text-base md:text-lg font-semibold text-gray-900">
+                            <h3 className="mb-3 text-lg md:text-xl font-bold text-zinc-900">
                                 {feature.title}
                             </h3>
-                            <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                            <p className="text-sm md:text-base text-zinc-500 leading-relaxed max-w-xs">
                                 {feature.description}
                             </p>
                         </div>

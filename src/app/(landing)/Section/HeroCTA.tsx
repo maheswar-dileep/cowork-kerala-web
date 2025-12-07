@@ -8,13 +8,13 @@ const HeroCTA = () => {
             {/* Background Image with Dark Overlay */}
             <div className="relative h-80 sm:h-96 md:h-[450px] lg:h-[500px] w-full">
                 <Image
-                    src="/images/hero-banner/people-coworking.png"
+                    src="/images/hero-banner/hero-card.png"
                     alt="Modern coworking space with warm lighting"
                     fill
                     className="object-cover"
                     sizes="100vw"
                 />
-                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0" />
             </div>
 
             {/* Content Overlay */}

@@ -44,12 +44,12 @@ const LocationsSection = () => {
 
     return (
         <section className="w-full mb-20">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+            <div className="text-center mb-8 md:mb-10 lg:mb-12">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-900 mb-2 md:mb-3">
                     Popular Locations in Kerala
                 </h2>
-                <p className="text-zinc-500 text-sm uppercase tracking-widest">
-                    Explore coworking spaces and virtual offices across major business hubs
+                <p className="text-xs sm:text-sm md:text-base text-zinc-700 tracking-wide uppercase px-4">
+                    EXPLORE COWORKING SPACES AND VIRTUAL OFFICES IN KERALA&apos;S MAJOR BUSINESS HUBS
                 </p>
             </div>
 

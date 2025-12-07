@@ -21,7 +21,7 @@ const Hero = () => {
                     {/* Filters */}
                     <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
                         <SelectInput
-                            className="w-full sm:w-48 md:w-56 h-11 md:h-12 rounded-xl bg-[#CFEAB1] text-zinc-800 text-sm md:text-base"
+                            className="w-full sm:w-auto sm:flex-1 h-11 md:h-12 rounded-xl bg-[#CFEAB1] text-zinc-800 text-sm md:text-base"
                             placeholder="Looking For"
                             options={[
                                 { label: 'Coworking Space', value: 'coworking' },
@@ -30,7 +30,7 @@ const Hero = () => {
                             ]}
                         />
                         <SelectInput
-                            className="w-full sm:w-48 md:w-56 h-11 md:h-12 rounded-xl bg-[#CFEAB1] text-zinc-800 text-sm md:text-base"
+                            className="w-full sm:w-auto sm:flex-1 h-11 md:h-12 rounded-xl bg-[#CFEAB1] text-zinc-800 text-sm md:text-base"
                             placeholder="Select City"
                             options={[
                                 { label: 'Kochi', value: 'kochi' },
