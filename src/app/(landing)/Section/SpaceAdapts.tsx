@@ -1,23 +1,26 @@
 import Image from 'next/image';
 import React from 'react';
 import { Users, Briefcase, Building2 } from 'lucide-react';
+import { GiOfficeChair } from 'react-icons/gi';
+import { IoIosPeople } from 'react-icons/io';
+import { PiLaptopFill } from 'react-icons/pi';
 
 const SpaceAdapts = () => {
     const services = [
         {
-            icon: Users,
+            icon: IoIosPeople,
             title: 'Coworking spaces',
             description:
                 'Diam pellentesque commodo volutpat quam. Augue eget tristique nibh vitae risus eu venenatis.',
         },
         {
-            icon: Briefcase,
+            icon: GiOfficeChair,
             title: 'Private offices',
             description:
                 'Diam pellentesque commodo volutpat quam. Augue eget tristique nibh vitae risus eu venenatis.',
         },
         {
-            icon: Building2,
+            icon: PiLaptopFill,
             title: 'Virtual offices',
             description:
                 'Diam pellentesque commodo volutpat quam. Augue eget tristique nibh vitae risus eu venenatis.',
@@ -67,9 +70,9 @@ const SpaceAdapts = () => {
                     </div>
 
                     {/* Stats */}
-                    <div className="flex flex-col xs:flex-row items-start gap-8 sm:gap-12 pt-2 md:pt-4">
+                    <div className="flex sm:flex-row items-start gap-8 sm:gap-12 pt-2 md:pt-4">
                         <div>
-                            <div className="text-4xl sm:text-5xl md:text-6xl font-semibold text-zinc-900 mb-1 md:mb-2">
+                            <div className="text-4xl sm:text-5xl md:text-7xl font-normal text-zinc-900 mb-1 md:mb-2">
                                 100+
                             </div>
                             <p className="text-xs sm:text-sm md:text-base text-zinc-600">
@@ -77,7 +80,7 @@ const SpaceAdapts = () => {
                             </p>
                         </div>
                         <div>
-                            <div className="text-4xl sm:text-5xl md:text-6xl font-semibold text-zinc-900 mb-1 md:mb-2">
+                            <div className="text-4xl sm:text-5xl md:text-7xl font-normal text-zinc-900 mb-1 md:mb-2">
                                 2,000+
                             </div>
                             <p className="text-xs sm:text-sm md:text-base text-zinc-600">5-Star Reviews</p>
@@ -86,14 +89,14 @@ const SpaceAdapts = () => {
 
                     {/* Community */}
                     <div className="pt-2 md:pt-4">
-                        <p className="text-sm sm:text-base md:text-lg font-medium text-zinc-900 mb-2 md:mb-3">
+                        <p className="text-base md:text-2xl font-medium text-zinc-900 mb-2 md:mb-3">
                             Community Coworking 500+
                         </p>
-                        <div className="flex items-center -space-x-2 md:-space-x-3">
+                        <div className="flex items-center -space-x-2 md:-space-x-3 mt-2">
                             {avatars.map((avatar, index) => (
                                 <div
                                     key={index}
-                                    className="relative w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white overflow-hidden bg-zinc-200"
+                                    className="relative size-12 md:size-16 rounded-full border-2 border-primary-100 overflow-hidden bg-primary-200"
                                 >
                                     <Image
                                         src={avatar}
@@ -121,18 +124,18 @@ const SpaceAdapts = () => {
                     </div>
 
                     {/* Service Cards */}
-                    <div className="space-y-3 md:space-y-4">
+                    <div className="space-y-3 md:space-y-4 rounded-xl md:rounded-2xl bg-white border border-zinc-200 hover:shadow-md transition-shadow">
                         {services.map((service, index) => {
                             const IconComponent = service.icon;
                             return (
                                 <div
                                     key={index}
-                                    className="flex items-start gap-3 md:gap-4 p-4 md:p-5 rounded-xl md:rounded-2xl bg-white border border-zinc-200 hover:shadow-md transition-shadow"
+                                    className="flex items-start gap-3 md:gap-4 p-4 md:p-5 border-b-zinc-200 last:border-b-0"
                                 >
-                                    <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-[#CFEAB1] flex items-center justify-center">
-                                        <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-zinc-800" />
+                                    <div className="flex-shrink-0 w-10 h-10 md:w-16 md:h-16 rounded-full md:rounded-full bg-primary-100 flex items-center justify-center">
+                                        <IconComponent className="w-5 h-5 md:w-10 md:h-10 text-primary-400" />
                                     </div>
-                                    <div className="flex-1">
+                                    <div clazinc-800ssName="flex-1">
                                         <h3 className="text-base md:text-lg lg:text-xl font-semibold text-zinc-900 mb-0.5 md:mb-1">
                                             {service.title}
                                         </h3>

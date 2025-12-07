@@ -10,7 +10,7 @@ const Header = () => {
             <nav className="hidden md:flex">
                 <ul className="flex items-center space-x-6 text-sm">
                     <li>
-                        <Link href="/co-working-spaces" className="hover:opacity-80 flex gap-2 items-end-safe">
+                        <Link href="/workspace" className="hover:opacity-80 flex gap-2 items-end-safe">
                             <span className="align-middle">Coworking Spaces</span>
                             <IoIosArrowDown size={18} className="font-light" />
                         </Link>

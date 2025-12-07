@@ -5,6 +5,9 @@ import Footer from '@/components/ui/Footer';
 import HeroSection from './Section/HeroSection';
 import AboutIntroSection from './Section/AboutIntroSection';
 import OurValuesSection from './Section/OurValuesSection';
+import GlimpseInsideSection from './Section/GlimpseInsideSection';
+import TeamSection from './Section/TeamSection';
+import TrustedCompaniesSection from './Section/TrustedCompaniesSection';
 
 const VirtualOffice = () => {
     return (
@@ -14,6 +17,9 @@ const VirtualOffice = () => {
                 <HeroSection />
                 <AboutIntroSection />
                 <OurValuesSection />
+                <GlimpseInsideSection />
+                <TeamSection />
+                <TrustedCompaniesSection />
             </Fixedw>
             <Footer />
         </>
