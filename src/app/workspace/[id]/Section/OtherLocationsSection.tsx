@@ -14,73 +14,73 @@ type Location = {
 
 const LOCATIONS: Location[] = [
     {
-        id: 'opera',
+        id: 'opera-1',
         title: 'Opéra',
         subtitle: 'Pl. de la Mairie, 35000 Rennes',
         image: '/images/thumb-1.jpg',
     },
     {
-        id: 'commerce',
+        id: 'commerce-1',
         title: 'Commerce',
         subtitle: 'Pl. de la République, 35000 Rennes',
         image: '/images/thumb-2.png',
     },
     {
-        id: 'triomphe',
+        id: 'triomphe-1',
         title: 'Triomphe',
         subtitle: 'Pl. Charles de Gaulle, 75008 Paris',
         image: '/images/thumb-1.jpg',
     },
     {
-        id: 'gustave',
+        id: 'gustave-1',
         title: 'Gustave Eiffel',
         subtitle: 'Av. Gustave Eiffel, 75007 Paris',
         image: '/images/thumb-2.png',
     },
     {
-        id: 'opera',
+        id: 'opera-2',
         title: 'Opéra',
         subtitle: 'Pl. de la Mairie, 35000 Rennes',
         image: '/images/thumb-1.jpg',
     },
     {
-        id: 'commerce',
+        id: 'commerce-2',
         title: 'Commerce',
         subtitle: 'Pl. de la République, 35000 Rennes',
         image: '/images/thumb-2.png',
     },
     {
-        id: 'triomphe',
+        id: 'triomphe-2',
         title: 'Triomphe',
         subtitle: 'Pl. Charles de Gaulle, 75008 Paris',
         image: '/images/thumb-1.jpg',
     },
     {
-        id: 'gustave',
+        id: 'gustave-2',
         title: 'Gustave Eiffel',
         subtitle: 'Av. Gustave Eiffel, 75007 Paris',
         image: '/images/thumb-2.png',
     },
     {
-        id: 'opera',
+        id: 'opera-3',
         title: 'Opéra',
         subtitle: 'Pl. de la Mairie, 35000 Rennes',
         image: '/images/thumb-1.jpg',
     },
     {
-        id: 'commerce',
+        id: 'commerce-3',
         title: 'Commerce',
         subtitle: 'Pl. de la République, 35000 Rennes',
         image: '/images/thumb-2.png',
     },
     {
-        id: 'triomphe',
+        id: 'triomphe-3',
         title: 'Triomphe',
         subtitle: 'Pl. Charles de Gaulle, 75008 Paris',
         image: '/images/thumb-1.jpg',
     },
     {
-        id: 'gustave',
+        id: 'gustave-3',
         title: 'Gustave Eiffel',
         subtitle: 'Av. Gustave Eiffel, 75007 Paris',
         image: '/images/thumb-2.png',
@@ -101,7 +101,7 @@ const LocationCard = ({ location }: { location: Location }) => {
                         priority
                     />
 
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                    <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
 
                     <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
                         <div className="text-white">

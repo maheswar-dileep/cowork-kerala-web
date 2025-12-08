@@ -47,7 +47,7 @@ const CoWorkingSpace = async ({ searchParams }: Props) => {
             <Header />
             <HeroSection />
             <FilterSection locations={locations} />
-            <WorkspaceListing workspaces={workspaces} />
+            <WorkspaceListing workspaces={workspaces} locations={locations} />
             <Footer />
         </Fixedw>
     );
