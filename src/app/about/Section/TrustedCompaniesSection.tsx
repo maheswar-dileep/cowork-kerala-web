@@ -25,12 +25,12 @@ const TrustedCompaniesSection = () => {
                     Companies
                 </span>
                 <h2 className="text-4xl font-semibold text-zinc-900 md:text-5xl">
-                    Kerala&apos;s most innovative companies trust us{' '}
+                    Trusted by the leading companies{' '}
                 </h2>
                 <p className="max-w-2xl text-zinc-600 leading-relaxed">
-                    We&apos;re proud to support a diverse range of businesses, from innovative
-                    startups to established industry leaders. Discover how our flexible workspaces
-                    and vibrant community have helped these companies thrive and grow.
+                    We're proud to support a diverse range of businesses, from innovative startups
+                    to established industry leaders. Discover how our flexible workspaces and
+                    vibrant
                 </p>
             </div>
 
