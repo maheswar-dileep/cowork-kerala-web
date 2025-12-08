@@ -22,7 +22,6 @@ const Page = async () => {
                 <SpaceAdapts />
                 <Featured />
                 <LocationsSection locations={locations} />
-                <PopularLocations locations={locations} />
             </Fixedw>
             <ContactForm locations={locations} />
             <Fixedw>
