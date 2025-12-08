@@ -1,8 +1,28 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Phone, Mail } from 'lucide-react';
+import { getLocations, Location } from '@/services/locations';
 
 const ContactSection = () => {
+    const [locations, setLocations] = useState<Location[]>([]);
+
+    useEffect(() => {
+        const fetchLocations = async () => {
+            try {
+                const data = await getLocations();
+                if (data) {
+                    setLocations(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch locations', error);
+            }
+        };
+
+        fetchLocations();
+    }, []);
+
     return (
         <section className="w-full px-6 md:px-12 mb-12 md:mb-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
@@ -24,7 +44,8 @@ const ContactSection = () => {
 
                     <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
                         <h2 className="text-3xl md:text-5xl font-medium text-white mb-8 leading-tight max-w-lg">
-                            <span className="text-primary-100">Fill out the form, and</span> we&apos;ll get back to you soon.
+                            <span className="text-primary-100">Fill out the form, and</span>{' '}
+                            we&apos;ll get back to you soon.
                         </h2>
 
                         <div className="space-y-4">
@@ -138,9 +159,11 @@ const ContactSection = () => {
                             <div className="relative">
                                 <select className="w-full px-4 py-3 rounded-lg bg-white border-none focus:ring-2 focus:ring-[#1A2818]/20 outline-none text-sm appearance-none text-gray-600">
                                     <option>Select...</option>
-                                    <option>Kochi</option>
-                                    <option>Trivandrum</option>
-                                    <option>Calicut</option>
+                                    {locations.map((loc) => (
+                                        <option key={loc.id || loc.name} value={loc.name}>
+                                            {loc.name}
+                                        </option>
+                                    ))}
                                 </select>
                                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                     <svg

@@ -1,21 +1,27 @@
-import React from 'react';
+'use client';
+
+import { getLocations, Location } from '@/services/locations';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 
-const locations = [
-    { name: 'Kochi', image: '/images/glimpse/office-floor.png' },
-    { name: 'Trivandrum', image: '/images/glimpse/standing-desk.png' },
-    { name: 'Calicut', image: '/images/glimpse/meeting-room.png' },
-    { name: 'Thrissur', image: '/images/glimpse/open-office.png' },
-    { name: 'Kollam', image: '/images/glimpse/group-discussion.png' },
-    { name: 'Kottayam', image: '/images/glimpse/office-floor.png' },
-    { name: 'Alappuzha', image: '/images/glimpse/standing-desk.png' },
-    { name: 'Palakkad', image: '/images/glimpse/meeting-room.png' },
-    { name: 'Kannur', image: '/images/glimpse/open-office.png' },
-    { name: 'Malappuram', image: '/images/glimpse/group-discussion.png' },
-];
-
 const HeroSection = () => {
+    const [locations, setLocations] = useState<Location[]>([]);
+
+    useEffect(() => {
+        const fetchLocations = async () => {
+            try {
+                const data = await getLocations();
+                if (data) {
+                    setLocations(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch locations', error);
+            }
+        };
+
+        fetchLocations();
+    }, []);
     return (
         <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center">
             {/* Left Content */}

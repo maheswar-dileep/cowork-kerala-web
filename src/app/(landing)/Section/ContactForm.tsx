@@ -1,7 +1,27 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getLocations, Location } from '@/services/locations';
 
 const ContactForm = () => {
+    const [locations, setLocations] = useState<Location[]>([]);
+
+    useEffect(() => {
+        const fetchLocations = async () => {
+            try {
+                const data = await getLocations();
+                if (data) {
+                    setLocations(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch locations', error);
+            }
+        };
+
+        fetchLocations();
+    }, []);
+
     return (
         <section className="relative overflow-hidden bg-primary-100 py-12 md:py-16 lg:py-20">
             {/* Background wavy pattern */}
@@ -37,7 +57,6 @@ const ContactForm = () => {
                                     className="h-12 w-full rounded-xl border-none bg-white px-4 text-zinc-900 placeholder:text-zinc-400 focus:ring-2 focus:ring-primary-400 focus:outline-none"
                                 />
                                 <div className="flex gap-2">
-
                                     <input
                                         type="tel"
                                         placeholder="Phone*"
@@ -62,10 +81,11 @@ const ContactForm = () => {
                                 <div className="relative">
                                     <select className="h-12 w-full appearance-none rounded-xl border-none bg-white px-4 text-zinc-900 focus:ring-2 focus:ring-primary-400 focus:outline-none">
                                         <option>Select City*</option>
-                                        <option>Kochi</option>
-                                        <option>Trivandrum</option>
-                                        <option>Calicut</option>
-                                        <option>Thrissur</option>
+                                        {locations.map((loc) => (
+                                            <option key={loc.id || loc.name} value={loc.name}>
+                                                {loc.name}
+                                            </option>
+                                        ))}
                                     </select>
                                     <span className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-xs">
                                         ▼

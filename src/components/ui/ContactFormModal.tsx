@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
+import { getLocations, Location } from '@/services/locations';
 
 type ContactFormModalProps = {
     isOpen: boolean;
@@ -10,6 +11,23 @@ type ContactFormModalProps = {
 };
 
 const ContactFormModal = ({ isOpen, onClose, onSubmit }: ContactFormModalProps) => {
+    const [locations, setLocations] = useState<Location[]>([]);
+
+    useEffect(() => {
+        const fetchLocations = async () => {
+            try {
+                const data = await getLocations();
+                if (data) {
+                    setLocations(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch locations', error);
+            }
+        };
+
+        fetchLocations();
+    }, []);
+
     if (!isOpen) return null;
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -122,9 +140,11 @@ const ContactFormModal = ({ isOpen, onClose, onSubmit }: ContactFormModalProps) 
                         <div className="relative">
                             <select className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-[#1A2818]/20 focus:border-[#1A2818]/30 outline-none text-sm appearance-none text-gray-600">
                                 <option>Select...</option>
-                                <option>Kochi</option>
-                                <option>Trivandrum</option>
-                                <option>Calicut</option>
+                                {locations.map((loc) => (
+                                    <option key={loc.id || loc.name} value={loc.name}>
+                                        {loc.name}
+                                    </option>
+                                ))}
                             </select>
                             <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                 <svg

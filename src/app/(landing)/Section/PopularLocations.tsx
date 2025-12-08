@@ -5,20 +5,25 @@ import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
-type Location = {
-    id: string;
-    name: string;
-    image: string;
-};
-
-const LOCATIONS: Location[] = [
-    { id: 'thrissur', name: 'Thrissur', image: '/images/thumb-1.jpg' },
-    { id: 'kozhikode', name: 'Kozhikode', image: '/images/thumb-2.png' },
-    { id: 'kochi', name: 'Kochi', image: '/images/hero-banner/b1.png' },
-    { id: 'trivandrum', name: 'Trivandrum', image: '/images/hero-banner/people-coworking.png' },
-];
+import { getLocations, Location } from '@/services/locations';
 
 const PopularLocations = () => {
+    const [locations, setLocations] = useState<Location[]>([]);
+
+    useEffect(() => {
+        const fetchLocations = async () => {
+            try {
+                const data = await getLocations();
+                if (data) {
+                    setLocations(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch locations', error);
+            }
+        };
+
+        fetchLocations();
+    }, []);
     const [emblaRef, emblaApi] = useEmblaCarousel({
         align: 'start',
         loop: true,
@@ -71,7 +76,7 @@ const PopularLocations = () => {
             {/* Carousel */}
             <div className="overflow-hidden mb-6 md:mb-8" ref={emblaRef}>
                 <div className="flex gap-4 md:gap-6 lg:gap-8">
-                    {LOCATIONS.map((loc) => (
+                    {locations.map((loc) => (
                         <div
                             key={loc.id}
                             className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(25%-24px)]"

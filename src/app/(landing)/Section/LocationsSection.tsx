@@ -5,16 +5,25 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { EmblaCarouselType } from 'embla-carousel';
 import { cn } from '@/lib/utils';
 
-const locations = [
-    { name: 'Thrissur', image: '/images/glimpse/office-floor.png' },
-    { name: 'Kozhikode', image: '/images/glimpse/open-office.png' },
-    { name: 'Kochi', image: '/images/glimpse/group-discussion.png' },
-    { name: 'Trivandrum', image: '/images/glimpse/standing-desk.png' },
-    { name: 'Kollam', image: '/images/glimpse/meeting-room.png' },
-    { name: 'Kannur', image: '/images/glimpse/open-office.png' },
-];
+import { getLocations, Location } from '@/services/locations';
 
 const LocationsSection = () => {
+    const [locations, setLocations] = useState<Location[]>([]);
+
+    useEffect(() => {
+        const fetchLocations = async () => {
+            try {
+                const data = await getLocations();
+                if (data) {
+                    setLocations(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch locations', error);
+            }
+        };
+
+        fetchLocations();
+    }, []);
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -49,7 +58,8 @@ const LocationsSection = () => {
                     Popular Locations in Kerala
                 </h2>
                 <p className="text-xs sm:text-sm md:text-base text-zinc-700 tracking-wide uppercase px-4">
-                    EXPLORE COWORKING SPACES AND VIRTUAL OFFICES IN KERALA&apos;S MAJOR BUSINESS HUBS
+                    EXPLORE COWORKING SPACES AND VIRTUAL OFFICES IN KERALA&apos;S MAJOR BUSINESS
+                    HUBS
                 </p>
             </div>
 
