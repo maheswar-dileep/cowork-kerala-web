@@ -172,7 +172,7 @@ const ContactForm = ({ locations }: Props) => {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="h-12 w-full rounded-xl bg-[#4d898b] text-white font-medium hover:bg-[#3b6874] transition-colors shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
+                                    className="h-12 w-full rounded-xl bg-primary-400 text-white font-medium hover:bg-primary-500 transition-colors shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
                                     {isSubmitting ? 'Submitting...' : 'Submit'}
                                 </button>
