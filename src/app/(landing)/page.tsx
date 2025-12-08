@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Header from '@/components/ui/Header';
 import Hero from './Section/Hero';
 import Featured from './Section/Featured';
@@ -11,6 +12,38 @@ import LocationsSection from './Section/LocationsSection';
 import { getLocations } from '@/services/locations';
 import PopularLocations from './Section/PopularLocations';
 
+export const metadata: Metadata = {
+    title: 'Best Coworking Spaces in Kerala | Book Online | CoWork Kerala',
+    description:
+        "Find and book coworking spaces and virtual offices in Kerala. Our platform offers flexible office spaces designed for today's remote professionals, startups, and businesses. Compare prices, amenities, and locations across Kochi, Thiruvananthapuram, Calicut, Thrissur. Book instantly online.",
+    keywords: [
+        'coworking spaces Kerala',
+        'virtual office Kerala',
+        'shared office space Kochi',
+        'coworking Trivandrum',
+        'coworking Calicut',
+        'flexible office space',
+        'hot desk Kerala',
+        'private office Kochi',
+    ],
+    openGraph: {
+        title: 'Best Coworking Spaces in Kerala | Book Online | CoWork Kerala',
+        description:
+            "Discover premium coworking spaces and virtual offices across God's Own Country. Professional workspaces in Kochi, Trivandrum, Calicut, Thrissur and more.",
+        type: 'website',
+        locale: 'en_IN',
+        siteName: 'CoWork Kerala',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Best Coworking Spaces in Kerala | CoWork Kerala',
+        description:
+            'Find and book coworking spaces and virtual offices in Kerala. Compare prices and book instantly online.',
+    },
+    alternates: {
+        canonical: 'https://coworkkerala.com',
+    },
+};
 const Page = async () => {
     const locations = await getLocations();
 
