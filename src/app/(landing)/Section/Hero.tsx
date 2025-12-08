@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation';
 
 const Hero = () => {
     const [locations, setLocations] = useState<Location[]>([]);
+    const [selectedType, setSelectedType] = useState('');
+    const [selectedCity, setSelectedCity] = useState('');
     const router = useRouter();
 
     useEffect(() => {
@@ -28,6 +30,21 @@ const Hero = () => {
 
         fetchLocations();
     }, []);
+
+    const handleSearch = () => {
+        const params = new URLSearchParams();
+        if (selectedCity) params.append('city', selectedCity);
+
+        let path = '/workspace';
+        if (selectedType === 'private-office') {
+            path = '/private-office';
+        } else if (selectedType === 'virtual-office') {
+            path = '/virtual-office';
+        }
+
+        const queryString = params.toString();
+        router.push(`${path}${queryString ? `?${queryString}` : ''}`);
+    };
 
     return (
         <section className="w-full py-8 md:py-12">
@@ -53,11 +70,15 @@ const Hero = () => {
                                 { label: 'Private Office', value: 'private-office' },
                                 { label: 'Virtual Office', value: 'virtual-office' },
                             ]}
+                            value={selectedType}
+                            onChange={(e) => setSelectedType(e.target.value)}
                         />
                         <SelectInput
                             className="w-full sm:w-auto sm:flex-1 h-11 md:h-12 rounded-xl bg-[#CFEAB1] text-zinc-800 text-sm md:text-base"
                             placeholder="Select City"
                             options={locations.map((loc) => ({ label: loc.name, value: loc.name }))}
+                            value={selectedCity}
+                            onChange={(e) => setSelectedCity(e.target.value)}
                         />
                     </div>
 
@@ -74,11 +95,14 @@ const Hero = () => {
 
                     {/* CTA */}
                     <div className="flex items-center gap-3 md:gap-4 pt-2 md:pt-4">
-                        <button onClick={() => router.push('/workspace')} className="h-11 md:h-12 px-5 md:px-6 rounded-full bg-zinc-900 text-white text-xs md:text-sm font-medium tracking-wide hover:bg-zinc-800 transition-colors cursor-pointer">
+                        <button
+                            onClick={handleSearch}
+                            className="h-11 md:h-12 px-5 md:px-6 rounded-full bg-zinc-900 text-white text-xs md:text-sm font-medium tracking-wide hover:bg-zinc-800 transition-colors cursor-pointer"
+                        >
                             FIND BEST WORKSPACE
                         </button>
                         <button
-                            onClick={() => router.push('/workspace')}
+                            onClick={handleSearch}
                             aria-label="Go"
                             className="size-11 md:size-12 rounded-full border-2 border-zinc-300 flex items-center justify-center hover:bg-zinc-50 transition-colors cursor-pointer"
                         >

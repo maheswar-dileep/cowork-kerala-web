@@ -5,6 +5,8 @@ type Props = {
     options: Array<{ value: string; label: string }>;
     className?: string;
     placeholder?: string;
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const SelectInput = (props: Props) => {
@@ -14,7 +16,9 @@ const SelectInput = (props: Props) => {
                 'w-48 h-12 p-2 px-4 rounded-lg bg-teal-300 text-lg flex justify-center items-center',
                 props.className
             )}
-            defaultValue=""
+            value={props.value}
+            onChange={props.onChange}
+            defaultValue={props.value ? undefined : ''}
         >
             {props.placeholder && (
                 <option value="" disabled>
