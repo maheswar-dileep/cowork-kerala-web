@@ -5,7 +5,13 @@ import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import ContactFormModal from '@/components/ui/ContactFormModal';
 
-const HeroCTA = () => {
+import { Location } from '@/services/locations';
+
+type Props = {
+    locations: Location[];
+};
+
+const HeroCTA = ({ locations }: Props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
@@ -46,7 +52,11 @@ const HeroCTA = () => {
                 </div>
             </section>
 
-            <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <ContactFormModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                locations={locations}
+            />
         </>
     );
 };

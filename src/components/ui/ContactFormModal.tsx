@@ -8,26 +8,10 @@ type ContactFormModalProps = {
     isOpen: boolean;
     onClose: () => void;
     onSubmit?: (e: React.FormEvent) => void;
+    locations: Location[];
 };
 
-const ContactFormModal = ({ isOpen, onClose, onSubmit }: ContactFormModalProps) => {
-    const [locations, setLocations] = useState<Location[]>([]);
-
-    useEffect(() => {
-        const fetchLocations = async () => {
-            try {
-                const data = await getLocations();
-                if (data) {
-                    setLocations(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch locations', error);
-            }
-        };
-
-        fetchLocations();
-    }, []);
-
+const ContactFormModal = ({ isOpen, onClose, onSubmit, locations }: ContactFormModalProps) => {
     if (!isOpen) return null;
 
     const handleSubmit = (e: React.FormEvent) => {

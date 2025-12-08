@@ -10,16 +10,19 @@ import EnquirySection from './Section/EnquirySection';
 import WhyChooseSection from './Section/WhyChooseSection';
 import DiscoverSection from './Section/DiscoverSection';
 import WelcomeSection from './Section/WelcomeSection';
+import { getLocations } from '@/services/locations';
 
-const LandingPage = () => {
+const LandingPage = async () => {
+    const locations = await getLocations();
+
     return (
         <>
             <Fixedw className="container mx-auto md:px-8 flex flex-col">
                 <Header />
-                <HeroSection />
+                <HeroSection locations={locations} />
                 <AdaptSection />
                 <FeaturedSection />
-                <LocationsSection />
+                <LocationsSection locations={locations} />
                 <EnquirySection />
                 <WhyChooseSection />
                 <DiscoverSection />

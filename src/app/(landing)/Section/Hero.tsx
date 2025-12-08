@@ -7,29 +7,14 @@ import React, { useEffect, useState } from 'react';
 import { getLocations, Location } from '@/services/locations';
 import { useRouter } from 'next/navigation';
 
-const Hero = () => {
-    const [locations, setLocations] = useState<Location[]>([]);
+type Props = {
+    locations: Location[];
+};
+
+const Hero = ({ locations }: Props) => {
     const [selectedType, setSelectedType] = useState('');
     const [selectedCity, setSelectedCity] = useState('');
     const router = useRouter();
-
-    useEffect(() => {
-        const fetchLocations = async () => {
-            try {
-                const data = await getLocations();
-                if (data && data.length > 0) {
-                    setLocations(data);
-                } else {
-                    // Fallback data if needed, or handle empty state
-                    setLocations([]);
-                }
-            } catch (error) {
-                console.error('Failed to fetch locations', error);
-            }
-        };
-
-        fetchLocations();
-    }, []);
 
     const handleSearch = () => {
         const params = new URLSearchParams();

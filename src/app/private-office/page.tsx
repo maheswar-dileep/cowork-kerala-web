@@ -6,8 +6,11 @@ import HeroSection from './Section/HeroSection';
 import ContactSection from './Section/ContactSection';
 import GallerySection from './Section/GallerySection';
 import SolutionsSection from './Section/SolutionsSection';
+import { getLocations } from '@/services/locations';
 
-const PrivateOfficePage = () => {
+const PrivateOfficePage = async () => {
+    const locations = await getLocations();
+
     return (
         <>
             <Fixedw className="container mx-auto md:px-8 flex flex-col">
@@ -15,7 +18,7 @@ const PrivateOfficePage = () => {
             </Fixedw>
             <HeroSection />
             <Fixedw className="container mx-auto md:px-8 flex flex-col mb-12 md:mb-24">
-                <ContactSection />
+                <ContactSection locations={locations} />
                 <GallerySection />
             </Fixedw>
             <SolutionsSection />

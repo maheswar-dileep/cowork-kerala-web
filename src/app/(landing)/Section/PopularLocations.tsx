@@ -7,23 +7,11 @@ import useEmblaCarousel from 'embla-carousel-react';
 
 import { getLocations, Location } from '@/services/locations';
 
-const PopularLocations = () => {
-    const [locations, setLocations] = useState<Location[]>([]);
+type Props = {
+    locations: Location[];
+};
 
-    useEffect(() => {
-        const fetchLocations = async () => {
-            try {
-                const data = await getLocations();
-                if (data) {
-                    setLocations(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch locations', error);
-            }
-        };
-
-        fetchLocations();
-    }, []);
+const PopularLocations = ({ locations }: Props) => {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         align: 'start',
         loop: true,

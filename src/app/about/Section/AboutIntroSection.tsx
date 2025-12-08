@@ -9,7 +9,7 @@ const AboutIntroSection = () => {
                 <div className="md:col-span-5">
                     <div className="relative h-80 w-full overflow-hidden rounded-3xl border border-gray-200 aspect-auto">
                         <Image
-                            src="/images/workspace-1.jpg"
+                            src="/images/about/about-1.png"
                             alt="Team member in a modern workspace"
                             fill
                             className="object-cover"

@@ -1,5 +1,4 @@
 import Header from '@/components/ui/Header';
-import React from 'react';
 import Fixedw from '@/components/ui/Fixedw';
 import Footer from '@/components/ui/Footer';
 import HeroSection from './Section/HeroSection';

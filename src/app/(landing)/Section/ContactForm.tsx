@@ -4,24 +4,11 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { getLocations, Location } from '@/services/locations';
 
-const ContactForm = () => {
-    const [locations, setLocations] = useState<Location[]>([]);
+type Props = {
+    locations: Location[];
+};
 
-    useEffect(() => {
-        const fetchLocations = async () => {
-            try {
-                const data = await getLocations();
-                if (data) {
-                    setLocations(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch locations', error);
-            }
-        };
-
-        fetchLocations();
-    }, []);
-
+const ContactForm = ({ locations }: Props) => {
     return (
         <section className="relative overflow-hidden bg-primary-100 py-12 md:py-16 lg:py-20">
             {/* Background wavy pattern */}

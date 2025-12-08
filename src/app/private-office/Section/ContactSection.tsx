@@ -5,24 +5,11 @@ import Image from 'next/image';
 import { Phone, Mail } from 'lucide-react';
 import { getLocations, Location } from '@/services/locations';
 
-const ContactSection = () => {
-    const [locations, setLocations] = useState<Location[]>([]);
+type Props = {
+    locations: Location[];
+};
 
-    useEffect(() => {
-        const fetchLocations = async () => {
-            try {
-                const data = await getLocations();
-                if (data) {
-                    setLocations(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch locations', error);
-            }
-        };
-
-        fetchLocations();
-    }, []);
-
+const ContactSection = ({ locations }: Props) => {
     return (
         <section className="w-full px-6 md:px-12 mb-12 md:mb-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">

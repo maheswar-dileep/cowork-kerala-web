@@ -8,22 +8,27 @@ import Footer from '@/components/ui/Footer';
 import Fixedw from '@/components/ui/Fixedw';
 import SpaceAdapts from './Section/SpaceAdapts';
 import LocationsSection from './Section/LocationsSection';
+import { getLocations } from '@/services/locations';
+import PopularLocations from './Section/PopularLocations';
 
-const Page = () => {
+const Page = async () => {
+    const locations = await getLocations();
+
     return (
         <div className="min-h-screen">
             <Fixedw>
                 <Header />
-                <Hero />
+                <Hero locations={locations} />
                 <SpaceAdapts />
                 <Featured />
-                <LocationsSection />
+                <LocationsSection locations={locations} />
+                <PopularLocations locations={locations} />
             </Fixedw>
-            <ContactForm />
+            <ContactForm locations={locations} />
             <Fixedw>
                 <WhyChoose />
             </Fixedw>
-            <HeroCTA />
+            <HeroCTA locations={locations} />
             <Footer />
         </div>
     );

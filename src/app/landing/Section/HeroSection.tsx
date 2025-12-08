@@ -5,23 +5,11 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 
-const HeroSection = () => {
-    const [locations, setLocations] = useState<Location[]>([]);
+type Props = {
+    locations: Location[];
+};
 
-    useEffect(() => {
-        const fetchLocations = async () => {
-            try {
-                const data = await getLocations();
-                if (data) {
-                    setLocations(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch locations', error);
-            }
-        };
-
-        fetchLocations();
-    }, []);
+const HeroSection = ({ locations }: Props) => {
     return (
         <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center">
             {/* Left Content */}

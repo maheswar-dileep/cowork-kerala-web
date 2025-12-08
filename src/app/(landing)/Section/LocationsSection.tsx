@@ -7,23 +7,11 @@ import { cn } from '@/lib/utils';
 
 import { getLocations, Location } from '@/services/locations';
 
-const LocationsSection = () => {
-    const [locations, setLocations] = useState<Location[]>([]);
+type Props = {
+    locations: Location[];
+};
 
-    useEffect(() => {
-        const fetchLocations = async () => {
-            try {
-                const data = await getLocations();
-                if (data) {
-                    setLocations(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch locations', error);
-            }
-        };
-
-        fetchLocations();
-    }, []);
+const LocationsSection = ({ locations }: Props) => {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
