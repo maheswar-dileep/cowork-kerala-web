@@ -30,48 +30,51 @@ const WorkspaceCard = ({
 
     return (
         <Link href={`/workspace/${workspace.id}`} className="block h-full group">
-            <article className="overflow-hidden rounded-2xl border border-gray-200 md:border-0 flex flex-col h-full">
+            <article className="overflow-hidden rounded-2xl border border-gray-200 md:border-0 bg-white flex flex-col h-full transition-all duration-300 hover:-translate-y-1">
                 <div className="relative">
-                    <div className="relative h-56 w-full overflow-hidden">
+                    <div className="relative h-48 sm:h-56 w-full overflow-hidden">
                         <Image
                             src={displayImage}
                             alt={workspace.spaceName}
                             fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-105"
-                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/60 to-transparent">
+                        {/* Optional: Add content here if needed, or keep the existing design */}
                     </div>
                     <div className="absolute bottom-0 left-0">
                         <div className="flex items-center justify-between gap-4 rounded-tr-xl bg-primary-100/90 px-4 py-2 backdrop-blur">
-                            <h3 className="text-base font-semibold md:text-sm">
+                            <h3 className="text-sm font-semibold sm:text-base">
                                 {workspace.spaceName}
                             </h3>
                             <button
                                 aria-label="View workspace"
-                                className="grid size-6 place-items-center rounded-full bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer"
+                                className="grid size-8 place-items-center rounded-full bg-black text-white transition-all duration-300 hover:bg-gray-800 hover:scale-110 active:scale-95"
                             >
-                                <ArrowRight sizhover:shadow-lge={16} className="text-sm" />
+                                <ArrowRight size={16} className="text-sm" />
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div className="space-y-4 p-5 md:p-0 md:py-2 flex flex-col grow">
-                    <p className="text-sm text-gray-700 line-clamp-3 lg:line-clamp-none col-span-3 grow">
+                <div className="flex flex-col grow p-4 sm:p-5 space-y-4">
+                    <p className="text-sm text-gray-600 line-clamp-3 grow">
                         {workspace.shortDescription || workspace.longDescription}
                     </p>
-                    <div className=" grid grid-cols-2 md:grid-cols-3 gap-2 items-center justify-between text-sm mt-auto">
-                        <div className="flex items-center gap-2 gap-y-4 text-gray-800 text-xs md:text-sm">
-                            <Users size={16} />
+                    <div className="flex flex-wrap items-center justify-between gap-3 text-sm mt-auto pt-4 border-t border-gray-100">
+                        <div className="flex items-center gap-2 text-gray-700 text-xs sm:text-sm">
+                            <Users size={16} className="text-primary-600" />
                             <span>1 - 10 Persons</span>
                         </div>
-                        <div className="flex items-center gap-2 text-gray-800">
-                            <DollarSign size={16} />
+                        <div className="flex items-center gap-2 text-gray-700 font-medium">
+                            <DollarSign size={16} className="text-primary-600" />
                             <span>{displayPrice}</span>
                         </div>
                         <button
                             onClick={onGetQuote}
-                            className="rounded-full bg-primary-100 px-3 py-1.5 text-gray-900 hover:bg-primary-200 transition-colors z-10 relative"
+                            className="w-full sm:w-auto rounded-full bg-primary-100 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-primary-200 transition-colors active:scale-95 z-10 relative"
                         >
                             Get quote
                         </button>
