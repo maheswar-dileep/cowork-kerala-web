@@ -10,17 +10,19 @@ import { getLocations } from '@/services/locations';
 import { getWorkspaces } from '@/services/workspace.service';
 
 type Props = {
-    searchParams: { [key: string]: string | string[] | undefined };
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-    const city = typeof searchParams.city === 'string' ? searchParams.city : undefined;
-    const title = city
-        ? `Coworking Spaces in ${city} | CoWork Kerala`
-        : 'Find Your Perfect Workspace | CoWork Kerala';
-    const description = city
-        ? `Discover the best coworking spaces in ${city}. Flexible desks, private offices, and meeting rooms available.`
-        : 'Explore top-rated coworking spaces across Kerala. Book hot desks, dedicated desks, and private offices.';
+    const { city } = await searchParams;
+    const title =
+        typeof city === 'string' && city
+            ? `Coworking Spaces in ${city} | CoWork Kerala`
+            : 'Find Your Perfect Workspace | CoWork Kerala';
+    const description =
+        typeof city === 'string' && city
+            ? `Discover the best coworking spaces in ${city}. Flexible desks, private offices, and meeting rooms available.`
+            : 'Explore top-rated coworking spaces across Kerala. Book hot desks, dedicated desks, and private offices.';
 
     return {
         title,
@@ -33,11 +35,12 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 }
 
 const CoWorkingSpace = async ({ searchParams }: Props) => {
-    const city = typeof searchParams.city === 'string' ? searchParams.city : undefined;
+    const { city } = await searchParams;
+    const cityStr = typeof city === 'string' ? city : undefined;
 
     const [locations, workspacesResponse] = await Promise.all([
         getLocations(),
-        getWorkspaces({ city }),
+        getWorkspaces({ city: cityStr }),
     ]);
 
     const workspaces = workspacesResponse?.data || [];
