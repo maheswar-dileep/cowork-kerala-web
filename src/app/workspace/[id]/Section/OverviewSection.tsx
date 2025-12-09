@@ -9,11 +9,51 @@ import {
     Sparkles,
     Car,
     VolumeX,
+    Zap,
+    Clock,
+    Video,
+    Calendar,
+    Mail,
+    Sofa,
+    Gamepad2,
+    TreePine,
+    type LucideIcon,
 } from 'lucide-react';
 import Form from '../forms/Form';
 import { PiChairLight, PiResize } from 'react-icons/pi';
+import { Workspace } from '@/services/workspace.service';
 
-const OverviewSection = () => {
+interface OverviewSectionProps {
+    workspace: Workspace;
+}
+
+// Map amenity names to icons
+const amenityIconMap: Record<string, LucideIcon> = {
+    'High-Speed WiFi': Wifi,
+    'Power Backup': Zap,
+    '24/7 Access': Clock,
+    'Conference Room': Users,
+    'Event Space': Calendar,
+    Whiteboard: Monitor,
+    'Mail Handling': Mail,
+    'Reception Service': Users,
+    'Outdoor Seating': TreePine,
+    'Gaming Zone': Gamepad2,
+    'Breakout Areas': Sofa,
+    'Meeting Room': Video,
+    'Ergonomic Chairs': Armchair,
+    'Daily Cleaning': Sparkles,
+    'On-site Parking': Car,
+    'Soundproof Booths': VolumeX,
+};
+
+const OverviewSection = ({ workspace }: OverviewSectionProps) => {
+    const lowestPrice = Math.min(
+        workspace.pricing?.hotDesk || Infinity,
+        workspace.pricing?.dedicatedDesk || Infinity,
+        workspace.pricing?.privateOffice || Infinity
+    );
+
     return (
         <section className="grid gap-8 md:gap-28 md:grid-cols-8">
             <div className="md:col-span-5">
@@ -27,24 +67,27 @@ const OverviewSection = () => {
                 </nav>
 
                 <p className="text-gray-800">
-                    Located in Trivandrum, our Commerce space blends modern design with local charm.
-                    Just a short walk from the city{`'`}s lively cafés, it
-                    {`'`}s an ideal spot for freelancers and teams seeking inspiration, flexibility,
-                    and community.
+                    {workspace.longDescription ||
+                        workspace.shortDescription ||
+                        `Located in ${workspace.city.name}, ${workspace.spaceName} offers modern coworking spaces designed for productivity and collaboration.`}
                 </p>
 
                 <div className="mt-5 grid grid-cols-2 gap-4 md:grid-cols-4">
                     <div className="flex items-center gap-2">
-                        <PiResize size={16} /> 240 sqm
+                        <PiResize size={16} />
+                        {workspace.spaceType}
                     </div>
                     <div className="flex items-center gap-2">
-                        <Users size={16} /> 50 people
+                        <Users size={16} />
+                        {workspace.spaceCategory}
                     </div>
                     <div className="flex items-center gap-2">
-                        <PiChairLight size={16} /> 40 desks
+                        <PiChairLight size={16} />
+                        {workspace.amenities?.length || 0} amenities
                     </div>
                     <div className="flex items-center gap-2">
-                        <IndianRupee size={16} /> From $699 /month
+                        <IndianRupee size={16} />
+                        From ₹{lowestPrice === Infinity ? 'N/A' : lowestPrice}/month
                     </div>
                 </div>
 
@@ -53,22 +96,28 @@ const OverviewSection = () => {
                     {[
                         {
                             title: 'Hot Desk',
-                            desc: 'Sit anywhere, stay flexible',
+                            desc: workspace.pricing?.hotDesk
+                                ? `₹${workspace.pricing.hotDesk}/month`
+                                : 'Contact for pricing',
                             icon: Timer,
                         },
                         {
                             title: 'Dedicated Desk',
-                            desc: 'Your own desk, every day',
+                            desc: workspace.pricing?.dedicatedDesk
+                                ? `₹${workspace.pricing.dedicatedDesk}/month`
+                                : 'Contact for pricing',
                             icon: Monitor,
                         },
                         {
                             title: 'Private Office',
-                            desc: 'Focus and grow with your team',
+                            desc: workspace.pricing?.privateOffice
+                                ? `₹${workspace.pricing.privateOffice}/month`
+                                : 'Contact for pricing',
                             icon: Lock,
                         },
                         {
                             title: 'Meeting Room',
-                            desc: 'Where ideas take shape',
+                            desc: 'Book on demand',
                             icon: Users,
                         },
                     ].map((s) => (
@@ -89,26 +138,34 @@ const OverviewSection = () => {
 
                 <h3 className="mt-8 text-2xl font-medium">Amenities</h3>
                 <div className="mt-4 grid grid-cols-2 gap-y-4 gap-x-3 md:grid-cols-2">
-                    {[
-                        { label: 'Hot desks', icon: Timer },
-                        { label: 'Private officies', icon: Lock },
-                        { label: 'Dedicated desks', icon: Monitor },
-                        { label: 'Meeting rooms', icon: Users },
-                        { label: '500 Mbps Wifi', icon: Wifi },
-                        { label: 'Ergonomic Chairs', icon: Armchair },
-                        { label: 'Daily Cleaning', icon: Sparkles },
-                        { label: 'On-site Parking', icon: Car },
-                        { label: 'Soundproof booths', icon: VolumeX },
-                    ].map((a) => (
-                        <div key={a.label} className="text-gray-600 flex items-center gap-3">
-                            <a.icon size={20} />
-                            {a.label}
-                        </div>
-                    ))}
+                    {workspace.amenities?.length > 0
+                        ? workspace.amenities.map((amenity) => {
+                              const IconComponent = amenityIconMap[amenity] || Sparkles;
+                              return (
+                                  <div
+                                      key={amenity}
+                                      className="text-gray-600 flex items-center gap-3"
+                                  >
+                                      <IconComponent size={20} />
+                                      {amenity}
+                                  </div>
+                              );
+                          })
+                        : [
+                              { label: 'Hot desks', icon: Timer },
+                              { label: 'Private offices', icon: Lock },
+                              { label: 'Meeting rooms', icon: Users },
+                              { label: 'High-Speed WiFi', icon: Wifi },
+                          ].map((a) => (
+                              <div key={a.label} className="text-gray-600 flex items-center gap-3">
+                                  <a.icon size={20} />
+                                  {a.label}
+                              </div>
+                          ))}
                 </div>
             </div>
 
-            <Form />
+            <Form spaceName={workspace.spaceName} cityName={workspace.city.name} />
         </section>
     );
 };

@@ -20,7 +20,12 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const Form = () => {
+interface FormProps {
+    spaceName?: string;
+    cityName?: string;
+}
+
+const Form = ({ spaceName, cityName }: FormProps) => {
     const {
         register,
         handleSubmit,
@@ -34,7 +39,7 @@ const Form = () => {
             phone: '',
             spaceType: '',
             numberOfSeats: 1,
-            location: '',
+            location: cityName || '',
             message: '',
         },
     });
@@ -43,7 +48,7 @@ const Form = () => {
         try {
             await leadService.createLead({
                 ...data,
-                enquiredFor: 'Workspace Page',
+                enquiredFor: spaceName ? `Workspace: ${spaceName}` : 'Workspace Page',
             });
             toast.success('Lead submitted successfully');
             reset();

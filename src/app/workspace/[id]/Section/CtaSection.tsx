@@ -1,10 +1,41 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Wifi, Clock, Users, Mail } from 'lucide-react';
+import { Wifi, Clock, Users, Mail, Zap, Video, Sparkles } from 'lucide-react';
 import { BiChair } from 'react-icons/bi';
+import { Workspace } from '@/services/workspace.service';
 
-const CtaSection = () => {
+interface CtaSectionProps {
+    workspace: Workspace;
+}
+
+// Map amenity names to icons for display
+const amenityDisplayMap: Record<string, { icon: React.ElementType; label: string }> = {
+    'High-Speed WiFi': { icon: Wifi, label: '500 Mbps Wi-Fi' },
+    '24/7 Access': { icon: Clock, label: '24/7 Access' },
+    'Conference Room': { icon: Users, label: 'Meeting Rooms' },
+    'Meeting Room': { icon: Users, label: 'Meeting Rooms' },
+    'Ergonomic Chairs': { icon: BiChair, label: 'Ergonomic Chair' },
+    'Power Backup': { icon: Zap, label: 'Power Backup' },
+    'Event Space': { icon: Video, label: 'Event Space' },
+};
+
+const CtaSection = ({ workspace }: CtaSectionProps) => {
+    // Get up to 4 amenities to display
+    const displayAmenities = workspace.amenities?.slice(0, 4).map((amenity) => {
+        const mapped = amenityDisplayMap[amenity];
+        return mapped
+            ? { icon: mapped.icon, label: mapped.label }
+            : { icon: Sparkles, label: amenity };
+    }) || [
+        { icon: Wifi, label: '500 Mbps Wi-Fi' },
+        { icon: Clock, label: '24/7 Access' },
+        { icon: Users, label: 'Meeting Rooms' },
+        { icon: BiChair, label: 'Ergonomic Chair' },
+    ];
+
+    const ctaImage = workspace.images?.[0] || '/images/hero-banner/people-coworking.png';
+
     return (
         <section>
             <div className="overflow-hidden rounded-3xl bg-[#4D898B]">
@@ -19,22 +50,12 @@ const CtaSection = () => {
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-12">
-                            <div className="flex items-center gap-3">
-                                <Wifi className="shrink-0" size={22} />{' '}
-                                <span className="text-lg">500 Mbps Wi-Fi</span>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <Clock className="shrink-0" size={22} />{' '}
-                                <span className="text-lg">24/7 Access</span>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <Users className="shrink-0" size={22} />{' '}
-                                <span className="text-lg">Meeting Rooms</span>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <BiChair className="shrink-0" size={22} />{' '}
-                                <span className="text-lg">Ergonomic Chair</span>
-                            </div>
+                            {displayAmenities.map((item, idx) => (
+                                <div key={idx} className="flex items-center gap-3">
+                                    <item.icon className="shrink-0" size={22} />
+                                    <span className="text-lg">{item.label}</span>
+                                </div>
+                            ))}
                         </div>
 
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
@@ -84,8 +105,8 @@ const CtaSection = () => {
 
                     <div className="md:col-span-5 relative min-h-[300px] md:min-h-full">
                         <Image
-                            src="/images/hero-banner/people-coworking.png"
-                            alt="People coworking"
+                            src={ctaImage}
+                            alt={`${workspace.spaceName} workspace`}
                             fill
                             className="object-cover"
                             sizes="(max-width: 768px) 100vw, 40vw"
