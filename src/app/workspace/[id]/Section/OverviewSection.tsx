@@ -10,7 +10,6 @@ import {
     Car,
     VolumeX,
 } from 'lucide-react';
-import React from 'react';
 import Form from '../forms/Form';
 import { PiChairLight, PiResize } from 'react-icons/pi';
 
