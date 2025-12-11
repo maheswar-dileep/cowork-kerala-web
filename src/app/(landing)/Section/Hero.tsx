@@ -25,12 +25,15 @@ const Hero = ({ locations }: Props) => {
             path = '/virtual-office';
         }
 
-        // For workspace, use path-based city routing
-        if (path === '/workspace' && selectedCity) {
-            router.push(`/workspace/${selectedCity.toLowerCase()}`);
-        } else {
-            router.push(path);
+        // Use path-based city routing for workspace and private-office
+        if (selectedCity) {
+            if (path === '/workspace' || path === '/private-office') {
+                router.push(`${path}/${selectedCity.toLowerCase()}`);
+                return;
+            }
         }
+
+        router.push(path);
     };
 
     return (

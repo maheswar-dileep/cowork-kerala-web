@@ -12,6 +12,7 @@ import { leadService } from '@/services/lead.service';
 
 type Props = {
     locations: Location[];
+    selectedCity?: string;
 };
 
 const leadSchema = z.object({
@@ -26,7 +27,12 @@ const leadSchema = z.object({
 
 type LeadFormValues = z.infer<typeof leadSchema>;
 
-const ContactSection = ({ locations }: Props) => {
+const ContactSection = ({ locations, selectedCity = '' }: Props) => {
+    // Capitalize the city for display in the form
+    const capitalizedCity = selectedCity
+        ? selectedCity.charAt(0).toUpperCase() + selectedCity.slice(1)
+        : '';
+
     const {
         register,
         handleSubmit,
@@ -36,6 +42,7 @@ const ContactSection = ({ locations }: Props) => {
         resolver: zodResolver(leadSchema),
         defaultValues: {
             spaceType: 'Private Office', // Pre-select Private Office
+            location: capitalizedCity, // Pre-select the city from URL
         },
     });
 

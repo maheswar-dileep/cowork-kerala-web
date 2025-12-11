@@ -3,12 +3,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Mail } from 'lucide-react';
 
-const HeroSection = () => {
+type Props = {
+    city?: string;
+};
+
+const HeroSection = ({ city }: Props) => {
     return (
         <section className="w-full bg-primary-100 p-6 md:p-12 mb-12 md:mb-20 px-6">
             <div className="px-4 md:px-[12%] mx-auto">
                 <h1 className="text-4xl md:text-6xl font-semibold text-zinc-900 mb-12">
-                    Private Office
+                    Private Office{city ? ` in ${city}` : ''}
                 </h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
