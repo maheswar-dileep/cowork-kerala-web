@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import useEmblaCarousel from 'embla-carousel-react';
 import { EmblaCarouselType } from 'embla-carousel';
 import { cn } from '@/lib/utils';
@@ -58,8 +59,11 @@ const LocationsSection = ({ locations }: Props) => {
                             key={index}
                             className="flex-[0_0_50%] md:flex-[0_0_25%] pl-4 md:pl-6 min-w-0"
                         >
-                            <div className="flex flex-col gap-3 group cursor-pointer">
-                                <div className="relative w-full aspect-[4/5] rounded-[30px] overflow-hidden">
+                            <Link
+                                href={`/workspace/${loc.name.toLowerCase()}`}
+                                className="flex flex-col gap-3 group cursor-pointer"
+                            >
+                                <div className="relative w-full aspect-4/5 rounded-[30px] overflow-hidden">
                                     <Image
                                         src={loc.image}
                                         alt={loc.name}
@@ -70,7 +74,7 @@ const LocationsSection = ({ locations }: Props) => {
                                 <h3 className="text-center font-bold text-zinc-900 group-hover:text-primary-600 transition-colors">
                                     {loc.name}
                                 </h3>
-                            </div>
+                            </Link>
                         </div>
                     ))}
                 </div>

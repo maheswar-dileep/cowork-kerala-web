@@ -9,39 +9,19 @@ import Fixedw from '@/components/ui/Fixedw';
 import { getLocations } from '@/services/locations';
 import { getWorkspaces } from '@/services/workspace.service';
 
-type Props = {
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+export const metadata: Metadata = {
+    title: 'Find Your Perfect Workspace | CoWork Kerala',
+    description:
+        'Explore top-rated coworking spaces across Kerala. Book hot desks, dedicated desks, and private offices.',
+    openGraph: {
+        title: 'Find Your Perfect Workspace | CoWork Kerala',
+        description:
+            'Explore top-rated coworking spaces across Kerala. Book hot desks, dedicated desks, and private offices.',
+    },
 };
 
-export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-    const { city } = await searchParams;
-    const title =
-        typeof city === 'string' && city
-            ? `Coworking Spaces in ${city} | CoWork Kerala`
-            : 'Find Your Perfect Workspace | CoWork Kerala';
-    const description =
-        typeof city === 'string' && city
-            ? `Discover the best coworking spaces in ${city}. Flexible desks, private offices, and meeting rooms available.`
-            : 'Explore top-rated coworking spaces across Kerala. Book hot desks, dedicated desks, and private offices.';
-
-    return {
-        title,
-        description,
-        openGraph: {
-            title,
-            description,
-        },
-    };
-}
-
-const CoWorkingSpace = async ({ searchParams }: Props) => {
-    const { city } = await searchParams;
-    const cityStr = typeof city === 'string' ? city : undefined;
-
-    const [locations, workspacesResponse] = await Promise.all([
-        getLocations(),
-        getWorkspaces({ city: cityStr }),
-    ]);
+const CoWorkingSpace = async () => {
+    const [locations, workspacesResponse] = await Promise.all([getLocations(), getWorkspaces({})]);
 
     const workspaces = workspacesResponse?.data || [];
 

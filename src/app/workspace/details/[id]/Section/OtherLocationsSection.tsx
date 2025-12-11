@@ -39,7 +39,7 @@ const LocationCard = ({ workspace }: { workspace: Workspace }) => {
                             </div>
                         </div>
                         <Link
-                            href={`/workspace/${workspace.id}`}
+                            href={`/workspace/details/${workspace.id}`}
                             className="pointer-events-auto rounded-full bg-primary-100 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-primary-200"
                         >
                             View

@@ -1,37 +1,28 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Location } from '@/services/locations';
 import { ChevronDown } from 'lucide-react';
 
 type Props = {
     locations: Location[];
+    currentCity?: string;
 };
 
-const FilterSection = ({ locations }: Props) => {
+const FilterSection = ({ locations, currentCity = '' }: Props) => {
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const [selectedCity, setSelectedCity] = useState('');
-
-    useEffect(() => {
-        const city = searchParams.get('city');
-        if (city) {
-            setSelectedCity(city);
-        }
-    }, [searchParams]);
+    const [selectedCity, setSelectedCity] = useState(currentCity);
 
     const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const city = e.target.value;
         setSelectedCity(city);
 
-        const params = new URLSearchParams(searchParams.toString());
         if (city) {
-            params.set('city', city);
+            router.push(`/workspace/${city.toLowerCase()}`);
         } else {
-            params.delete('city');
+            router.push('/workspace');
         }
-        router.push(`/workspace?${params.toString()}`);
     };
 
     return (

@@ -29,7 +29,7 @@ const WorkspaceCard = ({
         workspace.images.length > 0 ? workspace.images[0] : '/images/placeholder.jpg';
 
     return (
-        <Link href={`/workspace/${workspace.id}`} className="block h-full group">
+        <Link href={`/workspace/details/${workspace.id}`} className="block h-full group">
             <article className="overflow-hidden rounded-2xl border border-gray-200 md:border-0 bg-white flex flex-col h-full transition-all duration-300 hover:-translate-y-1">
                 <div className="relative">
                     <div className="relative h-48 sm:h-56 w-full overflow-hidden">

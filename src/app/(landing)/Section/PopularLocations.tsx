@@ -65,9 +65,10 @@ const PopularLocations = ({ locations }: Props) => {
             <div className="overflow-hidden mb-6 md:mb-8" ref={emblaRef}>
                 <div className="flex gap-4 md:gap-6 lg:gap-8">
                     {locations.map((loc) => (
-                        <div
+                        <Link
                             key={loc.id}
-                            className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(25%-24px)]"
+                            href={`/workspace/${loc.name.toLowerCase()}`}
+                            className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(25%-24px)] group"
                         >
                             <div className="flex flex-col items-center">
                                 <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl md:rounded-3xl mb-3 md:mb-4">
@@ -75,15 +76,15 @@ const PopularLocations = ({ locations }: Props) => {
                                         src={loc.image}
                                         alt={loc.name}
                                         fill
-                                        className="object-cover"
+                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                     />
                                 </div>
-                                <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900">
+                                <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 group-hover:text-primary-600 transition-colors">
                                     {loc.name}
                                 </h3>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
