@@ -20,9 +20,8 @@ const SelectInput = (props: Props) => {
         >
             <select
                 className="w-full h-full appearance-none bg-transparent outline-none px-4 pr-10 cursor-pointer text-inherit font-inherit rounded-inherit"
-                value={props.value}
+                value={props.value ?? ''}
                 onChange={props.onChange}
-                defaultValue={props.value ? undefined : ''}
             >
                 {props.placeholder && (
                     <option value="" disabled>
