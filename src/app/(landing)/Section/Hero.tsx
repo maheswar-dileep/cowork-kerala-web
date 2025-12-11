@@ -17,18 +17,20 @@ const Hero = ({ locations }: Props) => {
     const router = useRouter();
 
     const handleSearch = () => {
-        const params = new URLSearchParams();
-        if (selectedCity) params.append('city', selectedCity);
-
         let path = '/workspace';
+
         if (selectedType === 'private-office') {
             path = '/private-office';
         } else if (selectedType === 'virtual-office') {
             path = '/virtual-office';
         }
 
-        const queryString = params.toString();
-        router.push(`${path}${queryString ? `?${queryString}` : ''}`);
+        // For workspace, use path-based city routing
+        if (path === '/workspace' && selectedCity) {
+            router.push(`/workspace/${selectedCity.toLowerCase()}`);
+        } else {
+            router.push(path);
+        }
     };
 
     return (
