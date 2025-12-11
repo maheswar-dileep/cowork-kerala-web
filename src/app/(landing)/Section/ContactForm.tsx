@@ -32,7 +32,7 @@ const ContactForm = ({ locations }: Props) => {
     } = useForm<LeadFormValues>({
         resolver: zodResolver(leadSchema),
     });
-s
+
     const onSubmit = async (data: LeadFormValues) => {
         try {
             await leadService.createLead({
